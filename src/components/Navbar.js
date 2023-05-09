@@ -3,7 +3,7 @@ function Navbar() {
   return (
     <nav className="bg-pink-200 py-4 flex justify-around">
       <h1 className="text-4xl font-bold mb-6">
-        <Link to="/">Get your Cart Ready </Link>
+        <Link to="/">FreshPick </Link> Welcomes You
       </h1>
       <ul className="flex justify-around">
         <li className="cursor-pointer hover:text-gray-300 mr-4">
@@ -16,6 +16,7 @@ function Navbar() {
             Add new item to cart
           </Link>{" "}
         </li>
+
         <li className="cursor-pointer hover:text-gray-300">
           <Link
             to="/groceries"
@@ -24,6 +25,7 @@ function Navbar() {
             View Cart
           </Link>
         </li>
+
         <li className="cursor-pointer hover:text-gray-300">
           Number of items in cart{" "}
         </li>
@@ -35,5 +37,4 @@ function Navbar() {
     </nav>
   );
 }
-
 export default Navbar;
