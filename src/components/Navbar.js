@@ -24,8 +24,13 @@ function Navbar() {
             View Cart
           </Link>
         </li>
-        <li>Number of items in cart </li>
-        <li> Total price of cart </li>
+        <li className="cursor-pointer hover:text-gray-300">
+          Number of items in cart{" "}
+        </li>
+        <li className="cursor-pointer hover:text-gray-300">
+          {" "}
+          Total price of cart{" "}
+        </li>
       </ul>
     </nav>
   );
