@@ -13,13 +13,14 @@ import ContactUs from "./components/ContactUs";
 // COMPONENTS
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import Developers from "./components/Developers";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import DarkMode from "./components/DarkMode";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-orange-100">
       <BrowserRouter>
         <DarkMode>
           <Header />
@@ -29,6 +30,8 @@ function App() {
               {/* <Route path="/" element={<Home />} /> */}
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<ContactUs />} />
+              <Route path="/developers" element={<Developers />} />
+
               {/* <Route path="/budgets/:index/edit" element={<Edit />} />
               <Route path="/budgets/new" element={<New />} />
               <Route path="/budgets/:index" element={<Show />} />
