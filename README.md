@@ -1,6 +1,6 @@
-# Shopping Cart Application
+# FreshPick - Shopping Cart Application
 
-[Shopping Cart Application](https://...) is a budget application app that helps users keep track of their finances. The app is built using React, HTML, Tailwind, and JavaScript, and it uses an API from a backend created with Express and PostgresSQL.
+[FreshPick](https://...) is a budget application app that helps users keep track of their finances. The app is built using React, HTML, Tailwind, and JavaScript, and it uses an API from a backend created with Express and PostgresSQL.
 
 ### Introduction
 
@@ -43,13 +43,13 @@ This app includes the following features:
    - Changed favicon
    - Changed title
    - Added Tailwind Css
-   - Make categories a select HTML element
-   - Allow user to add new category
-   - Display the bank account total, deposits, withdrawals in navbar other than index
-   - Add helpful errors to users when invalid data
-   - Use the date object for the date, instead of just a string.
-   - Format Date, capitalize name
-   - use checkbox to track if withdraw or deposit
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
+   - 
    - validations in back end and front end
    - add about us page, contact us page, header, footer, social media icons for interaction
 
