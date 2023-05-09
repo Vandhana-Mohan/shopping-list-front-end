@@ -14,6 +14,11 @@ function Header({ isDarkMode }) {
       <Link to="/">
         <h1 className="m-6 text-4xl font-bold text-orange-600"> FreshPick</h1>
       </Link>
+
+      <div className="ml-auto text-center">
+        <i className="fa fa-user fa-lg mb-2"></i>
+        <div>Ana M.</div>
+      </div>
     </header>
   );
 }
