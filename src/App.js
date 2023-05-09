@@ -1,23 +1,43 @@
-// Dependencies
+// DEPENDENCIES
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// pages
-import Header from "./pages/Header";
-import Navbar from "./pages/Navbar";
-import Footer from "./pages/Footer";
+// PAGES
+// import Home from "./pages/Home";
+// import Index from "./pages/Index";
+// import New from "./pages/New";
+// import Show from "./pages/Show";
+// import Edit from "./pages/Edit";
+// import FourOFour from "./pages/FourOFour";
+import ContactUs from "./components/ContactUs";
 
-// components
+// COMPONENTS
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import AboutUs from "./components/AboutUs";
+import DarkMode from "./components/DarkMode";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
-        <Navbar />
-        <Routes>
-          <Route />
-        </Routes>
-        <Footer />
+        <DarkMode>
+          <Header />
+          <Navbar />
+          <main>
+            <Routes>
+              {/* <Route path="/" element={<Home />} /> */}
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<ContactUs />} />
+              {/* <Route path="/budgets/:index/edit" element={<Edit />} />
+              <Route path="/budgets/new" element={<New />} />
+              <Route path="/budgets/:index" element={<Show />} />
+              <Route path="/budgets" element={<Index />} />
+              <Route path="*" element={<FourOFour />} /> */}
+            </Routes>
+          </main>
+          <Footer />
+        </DarkMode>
       </BrowserRouter>
     </div>
   );
