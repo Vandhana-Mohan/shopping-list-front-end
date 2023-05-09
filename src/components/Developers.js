@@ -4,14 +4,14 @@ function Developers() {
     {
       name: "Touhami Ben",
       photo: "https://via.placeholder.com/50",
-      bio: "Touhami is a full-stack developer with a passion for creating elegant solutions to complex problems. In his free time, he enjoys hiking and playing guitar.",
+      bio: "I'm a full-stack developer with a passion for creating elegant solutions to complex problems. In my free time, I enjoy hiking and playing guitar.",
       github: "https://github.com/touhami-ben",
       linkedin: "https://www.linkedin.com/in/touhami-benmessaoud-aaa072259/",
     },
     {
       name: "Vandhana Mohan",
       photo: Vandhana,
-      bio: "I'm a full-stack web developer who loves crafting beautiful and intuitive user experiences. She is also an avid traveler and amateur in gardening.",
+      bio: "I'm a full-stack web developer who loves crafting beautiful and intuitive user experiences. My hobbies : love travelling  and gardening.",
       github: "https://github.com/Vandhana-Mohan",
       linkedin: "https://www.linkedin.com/in/vandhanamohan/",
     },

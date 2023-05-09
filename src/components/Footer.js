@@ -8,7 +8,7 @@ function Footer({ isDarkMode, handleDarkMode }) {
             <Link to="/about"> About Us</Link>
           </li>
           <li className="cursor-pointer hover:text-gray-300 text-lg">
-            <Link to="/about"> Developers</Link>
+            <Link to="/developers"> Developers</Link>
           </li>
           <li className="cursor-pointer hover:text-gray-300 text-lg">
             <Link to="/contact"> Contact Us</Link>
