@@ -10,7 +10,7 @@ This budget application app helps users keep track of their finances by allowing
 
 ### About Developer
 
-Touhami Ben    [GitHub](https://github.com/touhami-ben) | [LinkedIn](https://www.linkedin.com/in/touhami-benmessaoud-aaa072259/)
+Touhami Ben [GitHub](https://github.com/touhami-ben) | [LinkedIn](https://www.linkedin.com/in/touhami-benmessaoud-aaa072259/)
 
 Vandhana Mohan [GitHub](https://github.com/Vandhana-Mohan) | [LinkedIn](https://www.linkedin.com/in/vandhanamohan/)
 
