@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // PAGES
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 // import Index from "./pages/Index";
 // import New from "./pages/New";
 // import Show from "./pages/Show";
@@ -27,7 +27,7 @@ function App() {
           <Navbar />
           <main>
             <Routes>
-              {/* <Route path="/" element={<Home />} /> */}
+              <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/developers" element={<Developers />} />
