@@ -16,30 +16,27 @@ import Header from "./components/Header";
 import Developers from "./components/Developers";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
-import DarkMode from "./components/DarkMode";
 
 function App() {
   return (
     <div className="bg-orange-100">
       <BrowserRouter>
-        <DarkMode>
-          <Header />
-          <Navbar />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/developers" element={<Developers />} />
-              <Route path="/groceries/:id/edit" element={<Edit />} />
-              <Route path="/groceries/new" element={<New />} />
-              {/* <Route path="/songs/:id" element={<Show />} /> */}
-              <Route path="/groceries" element={<Index />} />
-              <Route path="*" element={<FourOFour />} />
-            </Routes>
-          </main>
-          <Footer />
-        </DarkMode>
+        <Header />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/developers" element={<Developers />} />
+            <Route path="/groceries/:id/edit" element={<Edit />} />
+            <Route path="/groceries/new" element={<New />} />
+            {/* <Route path="/songs/:id" element={<Show />} /> */}
+            <Route path="/groceries" element={<Index />} />
+            <Route path="*" element={<FourOFour />} />
+          </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
     </div>
   );

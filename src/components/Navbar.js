@@ -10,7 +10,7 @@ function Navbar() {
             className="bg-pink-400 text-white py-2 px-4 rounded"
           >
             {" "}
-            Add new item to cart
+            Add new item
           </Link>{" "}
         </li>
 
@@ -23,12 +23,21 @@ function Navbar() {
           </Link>
         </li>
 
+        <li className="cursor-pointer hover:text-gray-300">
+          <Link
+            to="/groceries"
+            className="bg-pink-400 text-white py-2 px-4 rounded"
+          >
+            Categories
+          </Link>
+        </li>
+
         <li className="cursor-pointer hover:text-gray-300 bg-pink-400 text-white py-2 px-4 rounded">
-          Number of items in cart{" "}
+          Number of items in store {" "}
         </li>
         <li className="cursor-pointer hover:text-gray-300 bg-pink-400 text-white py-2 px-4 rounded">
           {" "}
-          Total price of cart{" "}
+          Total price {" "}
         </li>
       </ul>
     </nav>

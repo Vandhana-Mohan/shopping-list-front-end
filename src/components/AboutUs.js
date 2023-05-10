@@ -8,7 +8,7 @@ function AboutUs() {
     >
       <h1 className="text-3xl font-bold text-gray-900">About FreshPick</h1>
       <p className="mt-6 text-lg text-gray-500">
-        FreshPick is your go-to shopping cart app for all your grocery needs.
+        FreshPick is your go-to grocery app for all your grocery needs.
         Our app is designed to help you easily browse, select and add items to
         your cart. We provide an extensive range of products for you to choose
         from, including fresh produce, pantry essentials, and household items.

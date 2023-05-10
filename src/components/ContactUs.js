@@ -15,8 +15,8 @@ function ContactUs() {
 
   return (
     <div
-      className="max-w-lg mx-auto mt-10 p-6 bg-gray-100 rounded-lg shadow-xl"
-      style={{ paddingBottom: "10rem" }}
+      className="max-w-sm mx-auto border p-6 bg-orange-100 rounded-lg shadow-indigo-500/50 shadow-xl"
+      style={{ paddingBottom: "8rem" }}
     >
       <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
       <form onSubmit={handleSubmit}>

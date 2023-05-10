@@ -1,12 +1,9 @@
 import Cart_Logo from "../assets/Cart_Logo.png";
 import { Link } from "react-router-dom";
 
-function Header({ isDarkMode }) {
+function Header() {
   return (
-    <header
-      className={"flex m-1 p-4 " + (isDarkMode ? "text-white" : "text-black")}
-      style={{ backgroundColor: isDarkMode ? "#1f2937" : "#85BB65" }}
-    >
+    <header className="flex m-1 p-4">
       <Link to="/">
         <img src={Cart_Logo} alt="Shop_Logo" className="w-20 h-20" />
       </Link>
@@ -17,7 +14,7 @@ function Header({ isDarkMode }) {
 
       <div className="ml-auto text-center">
         <i className="fa fa-user fa-3x animate-bounce mb-2"></i>
-        <div>Ana M.</div>
+        <div>Manager</div>
       </div>
     </header>
   );
