@@ -189,7 +189,7 @@ function GroceryNewForm() {
             value={newGrocery.unit}
             className="lg:w-full py-2 px-3 rounded-md border relative bg-white  border-gray-300 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring focus:ring-blue-600 focus:border-transparent"
           >
-            <option value="">Select Unit</option>
+            <option value="">-- Choose a unit --</option>
             {unitOptions.map((unit) => (
               <option key={unit} value={unit}>
                 {unit}
