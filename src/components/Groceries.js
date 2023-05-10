@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import Grocery from "./Grocery";
 
 function Groceries() {
@@ -16,29 +17,10 @@ function Groceries() {
   }, []);
 
   return (
-    <div>
-      <table className="table-auto w-full bg-pink-200">
-        <thead>
-          <tr>
-            <th className="px-4 py-2">#</th>
-            <th className="px-4 py-2">Name</th>
-            <th className="px-4 py-2">Category</th>
-            <th className="px-4 py-2">Image</th>
-            <th className="px-4 py-2">Description</th>
-            <th className="px-4 py-2">Price</th>
-            <th className="px-4 py-2">Quantity</th>
-            <th className="px-4 py-2">Unit</th>
-            <th className="px-4 py-2">Organic</th>
-          </tr>
-        </thead>
-        <tbody>
-          {grocery
-            ? grocery.map((item) => {
-                return <Grocery key={item.id} grocery={item} />;
-              })
-            : null}
-        </tbody>
-      </table>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-6 p-6">
+      {grocery.map((item) => (
+        <Grocery key={item.id} grocery={item} />
+      ))}
     </div>
   );
 }
