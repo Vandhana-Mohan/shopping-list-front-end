@@ -21,11 +21,14 @@ function Groceries() {
         <thead>
           <tr>
             <th className="px-4 py-2">#</th>
-            <th className="px-4 py-2">Title</th>
-            <th className="px-4 py-2">Artist</th>
-            <th className="px-4 py-2">Album</th>
-            <th className="px-4 py-2">Duration</th>
-            <th className="px-4 py-2">Favorite</th>
+            <th className="px-4 py-2">Name</th>
+            <th className="px-4 py-2">Category</th>
+            <th className="px-4 py-2">Image</th>
+            <th className="px-4 py-2">Description</th>
+            <th className="px-4 py-2">Price</th>
+            <th className="px-4 py-2">Quantity</th>
+            <th className="px-4 py-2">Unit</th>
+            <th className="px-4 py-2">Organic</th>
           </tr>
         </thead>
         <tbody>

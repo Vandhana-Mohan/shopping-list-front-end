@@ -12,11 +12,15 @@ function Grocery({ grocery }) {
           {grocery.name}
         </Link>
       </td>
-      <td className="border px-4 py-2">{grocery.artist}</td>
-      <td className="border px-4 py-2">{grocery.album}</td>
-      <td className="border px-4 py-2">{grocery.time}</td>
+      <td className="border px-4 py-2">{grocery.category}</td>
+      <td className="border px-4 py-2">{grocery.image_url}</td>
+      <td className="border px-4 py-2">{grocery.description}</td>
+      <td className="border px-4 py-2">{grocery.price}</td>
+      <td className="border px-4 py-2">{grocery.quantity}</td>
+      <td className="border px-4 py-2">{grocery.unit}</td>
+
       <td className="border px-4 py-2">
-        {grocery.is_organic ? <span> ⭐️ </span> : <span> &nbsp;&nbsp; </span>}
+        {grocery.is_organic ? <span> ✅ </span> : <span> ❌ </span>}
       </td>
     </tr>
   );
