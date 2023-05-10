@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 
 function GroceryEditForm() {
   let { index } = useParams();
@@ -16,7 +15,7 @@ function GroceryEditForm() {
     unit: "",
     is_organic: false,
   });
-  
+
   const unitOptions = [
     "lbs",
     "oz",
@@ -45,218 +44,60 @@ function GroceryEditForm() {
     "Household items",
   ]);
 
+  function handleTextChange(event) {
+    setEditGrocery({ ...editGrocery, [event.target.id]: event.target.value });
+  }
+
+  function handleCheckboxChange(event) {
+    setEditGrocery({ ...editGrocery, is_organic: event.target.checked });
+  }
+
+  function handleUnitChange(event) {
+    const { value } = event.target;
+    setEditGrocery((prev) => ({ ...prev, unit: value }));
+  }
+
   function handleCategoryChange(event) {
     const { value } = event.target;
     if (value === "addCategory") {
       const newCategory = prompt("Enter the name of the new category:");
       if (newCategory) {
         setCategories([...categories, newCategory]);
-        setEditBudget((prevBudget) => ({
-          ...prevBudget,
+        setEditGrocery((prev) => ({
+          ...prev,
           category: newCategory,
         }));
       }
     } else {
-      setEditBudget((prevBudget) => ({
-        ...prevBudget,
+      setEditGrocery((prev) => ({
+        ...prev,
         category: value,
       }));
     }
   }
 
-  const handleTextChange = (event) => {
-    setEditBudget({ ...editbudget, [event.target.id]: event.target.value });
-  };
-
-  const handleCheckboxChange = (event) => {
-    setEditBudget({ ...editbudget, isWithdrawal: event.target.checked });
-  };
-
-  function handleDateChange(event) {
-    const { value } = event.target;
-    setEditBudget((prevBudget) => ({
-      ...prevBudget,
-      date: value,
-    }));
-  }
-
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/budgets/${index}`)
+    fetch(`${process.env.REACT_APP_API_URL}/groceries/${index}`)
       .then((res) => res.json())
       .then((data) => {
-        setEditBudget(data);
+        setEditGrocery(data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [index]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios
-      .put(`${process.env.REACT_APP_API_URL}/budgets/${index}`, editbudget)
-      .then(() => navigate(`/budgets/${index}`));
-  };
-
-  return (
-    <div className="p-4" style={{ paddingBottom: "20rem" }}>
-      <h1 className="text-2xl font-bold mb-4"> Edit a new item </h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col w-1/2">
-          <label htmlFor="date" className="mb-2 text-lg font-medium">
-            Date
-          </label>
-          <input
-            id="date"
-            value={editbudget.date}
-            type="date"
-            onChange={handleDateChange}
-            required
-            placeholder="Enter in mm-dd-yyyy format"
-            pattern="(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])-(19|20)[0-9]{2}"
-            className="py-2 px-3 border border-gray-300 rounded-md"
-            title="Please match valid format mm-dd-yyyy"
-          />
-        </div>
-        <div className="flex flex-col w-1/2">
-          <label htmlFor="withdrawal" className="flex items-center">
-            <span className="mr-2">Withdrawal</span>
-            <input
-              id="withdrawal"
-              type="checkbox"
-              onChange={handleCheckboxChange}
-              className="mr-2"
-              checked={editbudget.isWithdrawal}
-            />
-          </label>
-        </div>
-
-        <div className="flex flex-col w-1/2">
-          <label htmlFor="item_name" className="mb-2 text-lg font-medium">
-            Name
-          </label>
-          <input
-            id="item_name"
-            type="text"
-            required
-            value={editbudget.item_name}
-            placeholder="Enter the name of item"
-            onChange={handleTextChange}
-            className="py-2 px-3 border border-gray-300 rounded-md"
-          />
-        </div>
-        <div className="flex flex-col w-1/2">
-          <label htmlFor="amount" className="mb-2 text-lg font-medium">
-            Amount
-          </label>
-          <input
-            id="amount"
-            type="number"
-            placeholder="Enter amount"
-            required
-            value={editbudget.amount}
-            onChange={handleTextChange}
-            className="py-2 px-3 border border-gray-300 rounded-md"
-          />
-        </div>
-        <div className="flex flex-col w-1/2">
-          <label htmlFor="from" className="mb-2 text-lg font-medium">
-            From
-          </label>
-          <input
-            id="from"
-            type="text"
-            value={editbudget.from}
-            placeholder="Please enter the source or recipient of this income/spending"
-            onChange={handleTextChange}
-            className="py-2 px-3 border border-gray-300 rounded-md"
-          />
-        </div>
-        <div className="flex flex-col w-1/2">
-          <label htmlFor="category">Category</label>
-          <select
-            id="category"
-            value={editbudget.category}
-            onChange={handleCategoryChange}
-            className="py-2 px-3 border border-gray-300 rounded-md mt-1 block w-full"
-          >
-            <option value="">-- Choose a category --</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-            <option value="addCategory">Add new category</option>
-          </select>
-        </div>
-        <div className="flex justify-center space-x-4">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4 hover:bg-blue-600"
-          >
-            Edit Item
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate("/")}
-            className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4 hover:bg-blue-600"
-          >
-            Cancel
-          </button>
-          <button className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4 hover:bg-blue-600">
-            <Link to="/budgets">Back</Link>
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-}
-// --------------
-
-
   function handleSubmit(event) {
     event.preventDefault();
     axios
-      .post(`${process.env.REACT_APP_API_URL}/groceries`, newGrocery)
+      .put(`${process.env.REACT_APP_API_URL}/groceries/${index}`, editGrocery)
       .then(() => {
-        navigate("/groceries");
+        navigate(`/groceries/${index}`);
       })
       .catch((error) => {
         console.log(error);
         navigate("/not-found");
       });
-  }
-
-  function handleTextChange(event) {
-    setNewGrocery({ ...newGrocery, [event.target.id]: event.target.value });
-  }
-
-  function handleCheckboxChange(event) {
-    setNewGrocery({ ...newGrocery, is_organic: event.target.checked });
-  }
-
-  function handleUnitChange(event) {
-    const { value } = event.target;
-    setNewGrocery((prev) => ({ ...prev, unit: value }));
-  }
-
-  function handleCategoryChange(event) {
-    const { value } = event.target;
-    if (value === "addCategory") {
-      const newCategory = prompt("Enter the name of the new category:");
-      if (newCategory) {
-        setCategories([...categories, newCategory]);
-        setNewGrocery((prev) => ({
-          ...prev,
-          category: newCategory,
-        }));
-      }
-    } else {
-      setNewGrocery((prev) => ({
-        ...prev,
-        category: value,
-      }));
-    }
   }
 
   return (
@@ -274,18 +115,17 @@ function GroceryEditForm() {
             placeholder="Enter the name of product:"
             title="Name of the Product is required"
             onChange={handleTextChange}
-            value={newGrocery.name}
+            value={editGrocery.name}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
           />
         </div>
-
         <div className="flex flex-col w-1/2">
           <label htmlFor="category" className="mb-1 font-medium text-gray-700">
             Category :
           </label>
           <select
             id="category"
-            value={newGrocery.category}
+            value={editGrocery.category}
             title="Choose category - optional"
             onChange={handleCategoryChange}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
@@ -313,7 +153,7 @@ function GroceryEditForm() {
             title="Description of the Product -- optional"
             placeholder="Enter a description for the product:"
             onChange={handleTextChange}
-            value={newGrocery.description}
+            value={editGrocery.description}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
           ></textarea>
         </div>
@@ -329,7 +169,7 @@ function GroceryEditForm() {
             min="0"
             step="0.99"
             onChange={handleTextChange}
-            value={newGrocery.price}
+            value={editGrocery.price}
             placeholder="Enter price 0.00 - no $ sign needed"
             title="Price is required"
             required
@@ -345,7 +185,7 @@ function GroceryEditForm() {
             type="number"
             min="0"
             onChange={handleTextChange}
-            value={newGrocery.quantity}
+            value={editGrocery.quantity}
             title="Quantity is required"
             placeholder="Enter the quantity: "
             required
@@ -361,7 +201,7 @@ function GroceryEditForm() {
             id="unit"
             onChange={handleUnitChange}
             title="Choose unit -- optional"
-            value={newGrocery.unit}
+            value={editGrocery.unit}
             className="lg:w-full py-2 px-3 rounded-md border relative bg-white  border-gray-300 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring focus:ring-blue-600 focus:border-transparent"
           >
             <option value="">Select Unit</option>

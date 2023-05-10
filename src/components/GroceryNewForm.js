@@ -6,7 +6,7 @@ function GroceryNewForm() {
   const [newGrocery, setNewGrocery] = useState({
     name: "",
     category: "",
-    description: "",
+    imageURL: "",
     price: "",
     quantity: "",
     unit: "",
@@ -129,21 +129,18 @@ function GroceryNewForm() {
         </div>
 
         <div className="flex flex-col w-1/2">
-          <label
-            htmlFor="description"
-            className="mb-1 font-medium text-gray-700"
-          >
-            Description :
+          <label htmlFor="imageURL" className="mb-1 font-medium text-gray-700">
+            Image URL :
           </label>
-          <textarea
-            id="description"
-            rows="2"
-            title="Description of the Product -- optional"
-            placeholder="Enter a description for the product:"
+          <input
+            id="imageURL"
+            type="text"
             onChange={handleTextChange}
-            value={newGrocery.description}
+            placeholder="Enter the URL link of product:"
+            title="URL image link of the Product -- optional"
+            value={newGrocery.imageURL}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
-          ></textarea>
+          />
         </div>
 
         <div className="flex flex-col w-1/2">
@@ -246,3 +243,23 @@ function GroceryNewForm() {
 }
 
 export default GroceryNewForm;
+
+/*
+        <div className="flex flex-col w-1/2">
+          <label
+            htmlFor="description"
+            className="mb-1 font-medium text-gray-700"
+          >
+            Description :
+          </label>
+          <textarea
+            id="description"
+            rows="2"
+            title="Description of the Product -- optional"
+            placeholder="Enter a description for the product:"
+            onChange={handleTextChange}
+            value={newGrocery.description}
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+          ></textarea>
+        </div>
+*/
