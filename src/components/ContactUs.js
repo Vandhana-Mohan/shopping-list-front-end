@@ -15,7 +15,7 @@ function ContactUs() {
 
   return (
     <div
-      className="max-w-sm mx-auto border p-6 bg-orange-100 rounded-lg shadow-indigo-500/50 shadow-xl"
+      className="max-w-sm mx-auto border p-6 bg-orange-100 rounded-lg shadow-indigo-500/50 shadow-2xl"
       style={{ paddingBottom: "8rem" }}
     >
       <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
