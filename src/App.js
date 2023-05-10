@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // PAGES
 import Home from "./pages/Home";
 // import Index from "./pages/Index";
-// import New from "./pages/New";
+import New from "./pages/New";
 // import Show from "./pages/Show";
 // import Edit from "./pages/Edit";
 import FourOFour from "./pages/FourOFour";
@@ -32,10 +32,10 @@ function App() {
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/developers" element={<Developers />} />
 
-              {/* <Route path="/budgets/:index/edit" element={<Edit />} />
-              <Route path="/budgets/new" element={<New />} />
-              <Route path="/budgets/:index" element={<Show />} />
-              <Route path="/budgets" element={<Index />} /> */}
+              {/* <Route path="/budgets/:index/edit" element={<Edit />} /> */}
+              <Route path="/groceries/new" element={<New />} />
+              {/* <Route path="/budgets/:index" element={<Show />} /> */}
+              {/* <Route path="/budgets" element={<Index />} /> */}
               <Route path="*" element={<FourOFour />} />
             </Routes>
           </main>
