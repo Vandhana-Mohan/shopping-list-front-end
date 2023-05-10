@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function Navbar() {
   return (
-    <nav className="bg-green-600 py-4 flex justify-around">
+    <nav className="bg-green-600 py-4 flex justify-around rounded shadow-green-500/50 shadow-xl">
       <ul className="flex justify-around">
         <li className="cursor-pointer hover:text-gray-300 mr-4">
           {" "}
