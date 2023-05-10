@@ -1,23 +1,37 @@
 import Cart_Logo from "../assets/Cart_Logo.png";
 import { Link } from "react-router-dom";
 
-function Header({ isDarkMode }) {
+function Header() {
+  const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+
+  let greeting;
+
+  if (currentHour < 12) {
+    greeting = "Good Morning";
+  } else if (currentHour < 18) {
+    greeting = "Good Afternoon";
+  } else {
+    greeting = "Good Evening";
+  }
   return (
-    <header
-      className={"flex m-1 p-4 " + (isDarkMode ? "text-white" : "text-black")}
-      style={{ backgroundColor: isDarkMode ? "#1f2937" : "#85BB65" }}
-    >
-      <Link to="/">
-        <img src={Cart_Logo} alt="Shop_Logo" className="w-20 h-20" />
-      </Link>
+    <header className="bg-green-300 p-4 flex items-center justify-between">
+      <div className="flex items-center">
+        <Link to="/">
+          <img src={Cart_Logo} alt="Shop_Logo" className="w-20 h-20" />
+        </Link>
+        <Link to="/">
+          <h1 className="text-white ml-2 text-2xl font-bold"> FreshPick</h1>
+        </Link>
+      </div>
 
-      <Link to="/">
-        <h1 className="m-6 text-4xl font-bold text-orange-600"> FreshPick</h1>
-      </Link>
+      <h2 className="text-white text-2xl font-bold">
+        {greeting} Manager, FreshPick welcomes you
+      </h2>
 
-      <div className="ml-auto text-center">
-        <i className="fa fa-user fa-3x animate-bounce mb-2"></i>
-        <div>Ana M.</div>
+      <div className="flex items-center">
+        <i className="fa fa-user fa-3x animate-bounce mb-2 mr-2 text-green"></i>
+        <div className="text-white text-xl">Manager</div>
       </div>
     </header>
   );

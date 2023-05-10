@@ -49,7 +49,7 @@ function GroceryNewForm() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/groceries`, newGrocery)
       .then(() => {
-        navigate("/groceries");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
