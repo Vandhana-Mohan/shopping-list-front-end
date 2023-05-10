@@ -16,7 +16,7 @@ function Header({ isDarkMode }) {
       </Link>
 
       <div className="ml-auto text-center">
-        <i className="fa fa-user fa-lg mb-2"></i>
+        <i className="fa fa-user fa-3x animate-bounce mb-2"></i>
         <div>Ana M.</div>
       </div>
     </header>
