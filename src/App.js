@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 // import Index from "./pages/Index";
 import New from "./pages/New";
 // import Show from "./pages/Show";
-// import Edit from "./pages/Edit";
+import Edit from "./pages/Edit";
 import FourOFour from "./pages/FourOFour";
 import ContactUs from "./components/ContactUs";
 
@@ -31,8 +31,7 @@ function App() {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/developers" element={<Developers />} />
-
-              {/* <Route path="/budgets/:index/edit" element={<Edit />} /> */}
+              <Route path="/groceries/:id/edit" element={<Edit />} />
               <Route path="/groceries/new" element={<New />} />
               {/* <Route path="/budgets/:index" element={<Show />} /> */}
               {/* <Route path="/budgets" element={<Index />} /> */}
