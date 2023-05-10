@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function GroceryNewForm() {
+
+  let navigate = useNavigate();
+
   const [newGrocery, setNewGrocery] = useState({
     name: "",
     category: "",
@@ -12,6 +15,7 @@ function GroceryNewForm() {
     unit: "",
     is_organic: false,
   });
+
   const unitOptions = [
     "lbs",
     "oz",
@@ -39,8 +43,6 @@ function GroceryNewForm() {
     "Baking supplies",
     "Household items",
   ]);
-
-  let navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -130,7 +132,7 @@ function GroceryNewForm() {
 
         <div className="flex flex-col w-1/2">
           <label htmlFor="imageURL" className="mb-1 font-medium text-gray-700">
-            Image URL :
+            URL (Image) link of the product :
           </label>
           <input
             id="imageURL"

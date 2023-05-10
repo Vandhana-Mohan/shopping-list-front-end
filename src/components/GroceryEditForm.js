@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -9,7 +9,7 @@ function GroceryEditForm() {
   const [editGrocery, setEditGrocery] = useState({
     name: "",
     category: "",
-    description: "",
+    imageURL: "",
     price: "",
     quantity: "",
     unit: "",
@@ -119,6 +119,7 @@ function GroceryEditForm() {
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
           />
         </div>
+
         <div className="flex flex-col w-1/2">
           <label htmlFor="category" className="mb-1 font-medium text-gray-700">
             Category :
@@ -141,21 +142,18 @@ function GroceryEditForm() {
         </div>
 
         <div className="flex flex-col w-1/2">
-          <label
-            htmlFor="description"
-            className="mb-1 font-medium text-gray-700"
-          >
-            Description :
+          <label htmlFor="imageURL" className="mb-1 font-medium text-gray-700">
+            URL (Image) link of the product :
           </label>
-          <textarea
-            id="description"
-            rows="2"
-            title="Description of the Product -- optional"
-            placeholder="Enter a description for the product:"
+          <input
+            id="imageURL"
+            type="text"
             onChange={handleTextChange}
-            value={editGrocery.description}
+            placeholder="Enter the URL link of product:"
+            title="URL image link of the Product -- optional"
+            value={editGrocery.imageURL}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
-          ></textarea>
+          />
         </div>
 
         <div className="flex flex-col w-1/2">
@@ -204,7 +202,7 @@ function GroceryEditForm() {
             value={editGrocery.unit}
             className="lg:w-full py-2 px-3 rounded-md border relative bg-white  border-gray-300 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring focus:ring-blue-600 focus:border-transparent"
           >
-            <option value="">Select Unit</option>
+            <option value="">-- Choose a unit --</option>
             {unitOptions.map((unit) => (
               <option key={unit} value={unit}>
                 {unit}
