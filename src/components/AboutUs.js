@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function AboutUs() {
   return (
     <div
-      className="mx-auto px-4 py-10 max-w-7xl rounded-lg shadow-green-500/50 border shadow-md"
+      className="mx-auto px-4 py-10 max-w-lg rounded-lg shadow-green-500/50 border shadow-md"
       style={{ paddingBottom: "10rem" }}
     >
       <h1 className="text-3xl font-bold tracking-wide text-gray-900">
@@ -20,9 +20,9 @@ function AboutUs() {
         purchases. With FreshPick, you can stay on top of your grocery shopping
         game, while saving time and money.
       </p>
-      <Link to="/budgets/new">
-        <h2 className="mt-10 text-2xl font-bold text-blue-700">
-          Lets Begin Shopping 🛒 🛒 🛒
+      <Link to="/">
+        <h2 className="mt-10 bg-green-300 hover:bg-green-100 text-2xl font-bold py-3 px-3 flex focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 border shadow-md w-max">
+          Lets Begin Shopping &nbsp;&nbsp;🛒 &nbsp;🛒 &nbsp;🛒
         </h2>
       </Link>
     </div>

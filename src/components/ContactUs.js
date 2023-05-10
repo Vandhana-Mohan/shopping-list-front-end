@@ -15,10 +15,10 @@ function ContactUs() {
 
   return (
     <div
-      className="max-w-sm mx-auto border p-6 bg-orange-100 rounded-lg shadow-indigo-500/50 shadow-2xl"
+      className="max-w-sm mx-auto border p-6 rounded-lg shadow-green-500/50 border shadow-md"
       style={{ paddingBottom: "8rem" }}
     >
-      <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
+      <h1 className="text-3xl font-bold teacking-wide mb-4">Contact Us</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
@@ -67,7 +67,7 @@ function ContactUs() {
         </div>
         <div className="flex justify-end">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-green-300 hover:bg-green-100 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 border shadow-md"
             type="submit"
           >
             Send

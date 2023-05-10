@@ -32,13 +32,13 @@ function Navbar() {
           </Link>
         </li>
 
-        <li className="cursor-pointer hover:text-gray-300 bg-transparent text-white py-2 px-4 rounded">
+        {/* <li className="cursor-pointer hover:text-gray-300 bg-transparent text-white py-2 px-4 rounded">
           Number of items in store{" "}
         </li>
         <li className="cursor-pointer hover:text-gray-300 bg-transparent text-white py-2 px-4 rounded">
           {" "}
           Total price{" "}
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
