@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function GroceryNewForm() {
-
   let navigate = useNavigate();
 
   const [newGrocery, setNewGrocery] = useState({
     name: "",
     category: "",
     imageURL: "",
+    description:"",
     price: "",
     quantity: "",
     unit: "",
@@ -146,6 +146,24 @@ function GroceryNewForm() {
         </div>
 
         <div className="flex flex-col w-1/2">
+          <label
+            htmlFor="description"
+            className="mb-1 font-medium text-gray-700"
+          >
+            Description :
+          </label>
+          <textarea
+            id="description"
+            rows="2"
+            title="Description of the Product -- optional"
+            placeholder="Enter a description for the product:"
+            onChange={handleTextChange}
+            value={newGrocery.description}
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+          ></textarea>
+        </div>
+
+        <div className="flex flex-col w-1/2">
           <label htmlFor="price" className="mb-1 font-medium text-gray-700">
             {" "}
             Price:
@@ -245,23 +263,3 @@ function GroceryNewForm() {
 }
 
 export default GroceryNewForm;
-
-/*
-        <div className="flex flex-col w-1/2">
-          <label
-            htmlFor="description"
-            className="mb-1 font-medium text-gray-700"
-          >
-            Description :
-          </label>
-          <textarea
-            id="description"
-            rows="2"
-            title="Description of the Product -- optional"
-            placeholder="Enter a description for the product:"
-            onChange={handleTextChange}
-            value={newGrocery.description}
-            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
-          ></textarea>
-        </div>
-*/

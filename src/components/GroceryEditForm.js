@@ -10,6 +10,7 @@ function GroceryEditForm() {
     name: "",
     category: "",
     imageURL: "",
+    description: "",
     price: "",
     quantity: "",
     unit: "",
@@ -154,6 +155,23 @@ function GroceryEditForm() {
             value={editGrocery.imageURL}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
           />
+        </div>
+        <div className="flex flex-col w-1/2">
+          <label
+            htmlFor="description"
+            className="mb-1 font-medium text-gray-700"
+          >
+            Description :
+          </label>
+          <textarea
+            id="description"
+            rows="2"
+            title="Description of the Product -- optional"
+            placeholder="Enter a description for the product:"
+            onChange={handleTextChange}
+            value={editGrocery.description}
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+          ></textarea>
         </div>
 
         <div className="flex flex-col w-1/2">
