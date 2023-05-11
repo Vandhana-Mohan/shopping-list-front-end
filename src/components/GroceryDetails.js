@@ -1,82 +1,92 @@
-import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  // const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  const monthName = date.toLocaleString("default", { month: "long" });
-  return `${monthName} ${day}, ${year}`;
-}
+function GroceryDetails() {
+  let { id } = useParams();
 
-function BudgetDetails() {
-  const [budget, setBudget] = useState([]);
-  let { index } = useParams(); //getting index from URL
   let navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/budgets/${index}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setBudget(data);
-      })
-      .catch((error) => {
-        navigate("/not-found");
-        console.log(error);
-      });
-  }, [index, navigate]);
+  const [showItem, setShowItem] = useState({
+    name: "",
+    category: "",
+    imageURL: "",
+    description: "",
+    price: "",
+    quantity: "",
+    unit: "",
+    is_organic: false,
+  });
 
-  const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this item?")) {
-      fetch(`${process.env.REACT_APP_API_URL}/budgets/${index}`, {
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
+      .then((response) => setShowItem(response.data))
+      .catch((error) => {
+        console.log(error);
+        navigate("/not-found");
+      });
+  }, [id, navigate]);
+
+  function handleDelete() {
+    if (window.confirm("Are you sure you want to delete this item ? ")) {
+      fetch(`${process.env.REACT_APP_API_URL}/groceries/${id}`, {
         method: "DELETE",
       })
         .then(() => {
-          navigate("/budgets");
+          navigate("/");
         })
         .catch((error) => {
           console.log(error);
           navigate("/not-found");
         });
     }
-  };
-  
+  }
 
   return (
     <div
       className="container mx-auto px-4 py-8"
       style={{ paddingBottom: "10rem" }}
     >
-      <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+      <div className="bg-pink-50 border border-red-50 shadow overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6 my-4">
           <h2 className="text-lg leading-6 font-medium text-gray-900 my-4">
-            {budget.item_name} - From {budget.from}
+            <strong>Title : </strong>
+            {showItem.name}
           </h2>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500 my-4">
-            <strong> Item Id : {budget.id} </strong>
-          </p>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500 my-4">
-            <strong> Date : {formatDate(budget.date)} </strong>
-          </p>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500 my-4">
-            <strong> Amount : $ {budget.amount} </strong>
-          </p>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500 my-4">
-            <strong> Category : {budget.category} </strong>
-          </p>
+          <h2 className="text-lg leading-6 font-medium text-gray-900 my-4">
+            <strong>Artist : </strong>
+            {showItem.artist}
+          </h2>
+          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
+            <strong>Album : </strong>
+            {showItem.album}
+          </h3>
+          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
+            <strong>Duration : </strong>
+            {showItem.time}
+          </h3>
+          {showItem.is_favorite ? (
+            <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
+              <strong>Favorite Song : ⭐️ </strong>
+            </h3>
+          ) : (
+            <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
+              <strong>Favorite Song : ❌ </strong>
+            </h3>
+          )}
         </div>
-        <div className="px-4 py-3 bg-gray-50 sm:px-6">
-          <div className="flex justify-center">
-            <button className="mr-2 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-              <Link to="/budgets">Back</Link>
-            </button>
 
-            <button className="mr-2 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <Link to={`/budgets/${index}/edit`}>Edit</Link>
+        <div className="px-4 py-3 bg-pink-100 sm:px-6">
+          <div className="flex justify-center">
+            <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+              <Link to="/songs">Back</Link>
+            </button>
+            <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <Link to={`/groceries/${id}/edit`}>Edit</Link>
             </button>
             <button
-              className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               onClick={handleDelete}
             >
               Delete
@@ -87,5 +97,4 @@ function BudgetDetails() {
     </div>
   );
 }
-
-export default BudgetDetails;
+export default GroceryDetails;

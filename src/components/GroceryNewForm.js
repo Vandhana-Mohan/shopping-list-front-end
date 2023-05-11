@@ -88,11 +88,11 @@ function GroceryNewForm() {
       }));
     }
   }
-
+  
   return (
     <div className="p-4" style={{ paddingBottom: "6rem" }}>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-3/4">
           <label htmlFor="name" className="mb-1 font-medium text-gray-700">
             Name of the product: (Required)
           </label>
@@ -105,11 +105,11 @@ function GroceryNewForm() {
             title="Name of the Product is required"
             onChange={handleTextChange}
             value={newGrocery.name}
-            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           />
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-3/4">
           <label htmlFor="category" className="mb-1 font-medium text-gray-700">
             Category : (Optional)
           </label>
@@ -118,7 +118,7 @@ function GroceryNewForm() {
             value={newGrocery.category}
             title="Choose category - optional"
             onChange={handleCategoryChange}
-            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           >
             <option value="">-- Choose a category --</option>
             {categories.map((category) => (
@@ -130,7 +130,7 @@ function GroceryNewForm() {
           </select>
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-3/4">
           <label htmlFor="imageURL" className="mb-1 font-medium text-gray-700">
             URL (Image) link of the product : (Optional)
           </label>
@@ -141,11 +141,11 @@ function GroceryNewForm() {
             placeholder="Enter the URL link of product:"
             title="URL image link of the Product -- optional"
             value={newGrocery.imageURL}
-            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           />
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-3/4">
           <label
             htmlFor="description"
             className="mb-1 font-medium text-gray-700"
@@ -159,11 +159,11 @@ function GroceryNewForm() {
             placeholder="Enter a description for the product:"
             onChange={handleTextChange}
             value={newGrocery.description}
-            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           ></textarea>
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-3/4">
           <label htmlFor="price" className="mb-1 font-medium text-gray-700">
             {" "}
             Price: (Required)
@@ -178,10 +178,10 @@ function GroceryNewForm() {
             placeholder="Enter price 0.00 - no $ sign needed"
             title="Price is required"
             required
-            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           />
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-3/4">
           <label htmlFor="quantity" className="mb-1 font-medium text-gray-700">
             Quantity: (Required)
           </label>
@@ -194,11 +194,11 @@ function GroceryNewForm() {
             title="Quantity is required"
             placeholder="Enter the quantity: "
             required
-            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
+            className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           />
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-3/4">
           <label htmlFor="unit" className="mb-1 font-medium text-gray-700">
             Unit: (Optional)
           </label>
@@ -207,7 +207,7 @@ function GroceryNewForm() {
             onChange={handleUnitChange}
             title="Choose unit -- optional"
             value={newGrocery.unit}
-            className="lg:w-full py-2 px-3 rounded-md border relative bg-white  border-gray-300 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring focus:ring-blue-600 focus:border-transparent"
+            className="lg:w-3/4 py-2 px-3 rounded-md border relative bg-white  border-gray-300 bg-white text-gray-900 shadow-sm focus:outline-none focus:ring focus:ring-blue-600 focus:border-transparent"
           >
             <option value="">-- Choose a unit --</option>
             {unitOptions.map((unit) => (
@@ -244,7 +244,7 @@ function GroceryNewForm() {
           </button>
           <button
             type="button"
-            onClick={() => navigate("/groceries")}
+            onClick={() => navigate("/")}
             className="bg-green-300 hover:bg-green-100 mt-4 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 border shadow-md"
           >
             Cancel

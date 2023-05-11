@@ -255,7 +255,7 @@ function GroceryEditForm() {
           </button>
           <button
             type="button"
-            onClick={() => navigate("/groceries")}
+            onClick={() => navigate("/")}
             className="bg-green-300 hover:bg-green-100 mt-4 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 border shadow-md"
           >
             Cancel

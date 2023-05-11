@@ -6,8 +6,7 @@ function Developers() {
       name: "Touhami Ben",
       photo: "https://via.placeholder.com/50",
       bio: "I am a full-stack web developer with a passion for creating elegant solutions to complex problems.",
-      hobbies:
-        "I enjoy hiking and playing soccer with friends.",
+      hobbies: "I enjoy hiking and playing soccer with friends.",
       github: "https://github.com/touhami-ben",
       linkedin: "https://www.linkedin.com/in/touhami-benmessaoud-aaa072259/",
       funFact: "I love cats.",
@@ -37,7 +36,11 @@ function Developers() {
             key={index}
             className="bg-white shadow-lg rounded-lg overflow-hidden flex"
           >
-            <img className="w-1/2 rounded-lg shadow-green-500/50 shadow-lg" src={developer.photo} alt={developer.name} />
+            <img
+              className="w-1/2 rounded-lg shadow-green-500/50 shadow-lg"
+              src={developer.photo}
+              alt={developer.name}
+            />
             <div className="px-6 py-4 flex flex-col justify-between">
               <div>
                 <h2 className="font-bold text-2xl mb-2">{developer.name}</h2>
