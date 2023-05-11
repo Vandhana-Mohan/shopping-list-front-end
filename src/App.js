@@ -2,10 +2,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // PAGES
-// import Home from "./pages/Home";
 import Index from "./pages/Index";
 import New from "./pages/New";
-// import Show from "./pages/Show";
+import Show from "./pages/Show";
 import Edit from "./pages/Edit";
 import FourOFour from "./pages/FourOFour";
 import ContactUs from "./components/ContactUs";
@@ -25,13 +24,12 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/developers" element={<Developers />} />
             <Route path="/groceries/:id/edit" element={<Edit />} />
             <Route path="/groceries/new" element={<New />} />
-            {/* <Route path="/songs/:id" element={<Show />} /> */}
+            <Route path="/groceries/:id" element={<Show />} />
             <Route path="/" element={<Index />} />
             <Route path="*" element={<FourOFour />} />
           </Routes>

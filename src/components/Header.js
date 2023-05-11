@@ -18,7 +18,7 @@ function Header() {
     <header className="bg-green-300 p-4 flex items-center justify-between">
       <div className="flex items-center">
         <Link to="/">
-          <img src={Cart_Logo} alt="Shop_Logo" className="w-20 h-20" />
+          <img src={Cart_Logo} alt="Shop_Logo" className="w-20 h-20 shadow-indigo-500/50 shadow-lg" />
         </Link>
         <Link to="/">
           <h1

@@ -19,12 +19,17 @@ function Grocery({ grocery }) {
       )}
 
       <div className="p-4 text-center">
-        <h2 className="text-2xl font-bold mb-2">
-          {grocery.name
-            .split(" ")
-            .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
-            .join(" ")}
-        </h2>
+        <Link
+          to={`/groceries/${grocery.id}`}
+          className="text-blue-500 hover:underline"
+        >
+          <h2 className="text-2xl font-bold mb-2">
+            {grocery.name
+              .split(" ")
+              .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
+              .join(" ")}
+          </h2>
+        </Link>
 
         <p className="text-lg mb-2">
           {grocery.description
