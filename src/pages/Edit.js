@@ -2,7 +2,7 @@ import GroceryEditForm from "../components/GroceryEditForm";
 
 function Edit() {
   return (
-    <div className="shadow-lg rounded-lg items-center p-6 m-6 justify-center bg-pink-50">
+    <div className="rounded-lg items-center p-6 m-6 justify-center shadow-green-500/50 border shadow-md">
       <h1 className="text-4xl font-bold mb-6">
         Edit items from your cart ...{" "}
       </h1>

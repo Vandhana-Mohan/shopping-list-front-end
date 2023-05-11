@@ -9,7 +9,7 @@ function GroceryNewForm() {
     name: "",
     category: "",
     imageURL: "",
-    description:"",
+    description: "",
     price: "",
     quantity: "",
     unit: "",
@@ -90,11 +90,11 @@ function GroceryNewForm() {
   }
 
   return (
-    <div className="p-4" style={{ paddingBottom: "12rem" }}>
+    <div className="p-4" style={{ paddingBottom: "6rem" }}>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col w-full">
           <label htmlFor="name" className="mb-1 font-medium text-gray-700">
-            Name of the product:
+            Name of the product: (Required)
           </label>
           <input
             id="name"
@@ -109,9 +109,9 @@ function GroceryNewForm() {
           />
         </div>
 
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col w-full">
           <label htmlFor="category" className="mb-1 font-medium text-gray-700">
-            Category :
+            Category : (Optional)
           </label>
           <select
             id="category"
@@ -130,9 +130,9 @@ function GroceryNewForm() {
           </select>
         </div>
 
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col w-full">
           <label htmlFor="imageURL" className="mb-1 font-medium text-gray-700">
-            URL (Image) link of the product :
+            URL (Image) link of the product : (Optional)
           </label>
           <input
             id="imageURL"
@@ -145,12 +145,12 @@ function GroceryNewForm() {
           />
         </div>
 
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col w-full">
           <label
             htmlFor="description"
             className="mb-1 font-medium text-gray-700"
           >
-            Description :
+            Description : (Optional)
           </label>
           <textarea
             id="description"
@@ -163,10 +163,10 @@ function GroceryNewForm() {
           ></textarea>
         </div>
 
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col w-full">
           <label htmlFor="price" className="mb-1 font-medium text-gray-700">
             {" "}
-            Price:
+            Price: (Required)
           </label>
           <input
             id="price"
@@ -181,9 +181,9 @@ function GroceryNewForm() {
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
           />
         </div>
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col w-full">
           <label htmlFor="quantity" className="mb-1 font-medium text-gray-700">
-            Quantity:
+            Quantity: (Required)
           </label>
           <input
             id="quantity"
@@ -198,9 +198,9 @@ function GroceryNewForm() {
           />
         </div>
 
-        <div className="flex flex-col w-1/2">
+        <div className="flex flex-col w-full">
           <label htmlFor="unit" className="mb-1 font-medium text-gray-700">
-            Unit:
+            Unit: (Optional)
           </label>
           <select
             id="unit"
@@ -230,7 +230,7 @@ function GroceryNewForm() {
             htmlFor="is_organic"
             className="mb-1 font-medium text-gray-700"
           >
-            Organic
+            Organic (Optional - Default Non Organic)
           </label>
         </div>
 
@@ -238,20 +238,20 @@ function GroceryNewForm() {
           <button
             type="submit"
             onSubmit={handleSubmit}
-            className="px-4 py-2 mt-4 text-white bg-pink-400 rounded-md hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="bg-green-300 hover:bg-green-100 mt-4 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 border shadow-md"
           >
             Save
           </button>
           <button
             type="button"
             onClick={() => navigate("/groceries")}
-            className="px-4 py-2 mt-4 text-white bg-pink-400 rounded-md hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+            className="bg-green-300 hover:bg-green-100 mt-4 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 border shadow-md"
           >
             Cancel
           </button>
           <button
             type="reset"
-            className="px-4 py-2 mt-4 text-white bg-pink-400 rounded-md hover:bg-pink-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="bg-green-300 hover:bg-green-100 mt-4 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 border shadow-md"
           >
             {" "}
             Reset

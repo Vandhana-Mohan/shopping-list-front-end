@@ -1,10 +1,10 @@
-import BudgetDetails from "../Components/BudgetDetails";
+import GroceryDetails from "../components/GroceryDetails";
 
 function Show() {
   return (
-    <div className="flex flex-col p-4 justify-center bg-gray-100">
-      <h1 className="text-3xl font-bold mb-4">Show Transaction</h1>
-      <BudgetDetails />
+    <div className="flex flex-col p-6 m-6 rounded-lg items-center justify-center shadow-green-500/50 border shadow-md">
+      <h1 className="text-4xl font-bold mb-6">View Details . . .</h1>
+      <GroceryDetails />
     </div>
   );
 }
