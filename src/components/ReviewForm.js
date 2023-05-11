@@ -10,7 +10,7 @@ function ReviewForm(props) {
     title: "",
     content: "",
     rating: "",
-    bookmark_id: id,
+    grocery_id: id,
   });
 
   const handleTextChange = (event) => {
@@ -27,6 +27,7 @@ function ReviewForm(props) {
     event.preventDefault();
     props.handleSubmit(review, id);
     if (reviewDetails) {
+      console.log("review id:", reviewDetails.id);
       props.toggleView();
     }
     setReview({
@@ -34,7 +35,7 @@ function ReviewForm(props) {
       title: "",
       content: "",
       rating: "",
-      bookmark_id: id,
+      grocery_id: id,
     });
   };
   return (

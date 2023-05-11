@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Reviews from "./Reviews";
+
 
 function GroceryDetails() {
   let { id } = useParams();
@@ -10,7 +12,7 @@ function GroceryDetails() {
   const [showItem, setShowItem] = useState({
     name: "",
     category: "",
-    imageURL: "",
+    image_url: "",
     description: "",
     price: "",
     quantity: "",
@@ -65,15 +67,9 @@ function GroceryDetails() {
 
           <img
             className="w-full h-60 object-cover"
-            src={showItem.imageURL}
+            src={showItem.image_url}
             alt={showItem.name}
-            onError={(e) => console.log(e)}
-            crossOrigin="anonymous"
           />
-<div
-  className="w-full h-60 object-cover"
-  style={{ backgroundImage: `url(${showItem.imageURL})` }}
-/>
 
           <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
             <strong>Product Description : </strong>
@@ -104,7 +100,8 @@ function GroceryDetails() {
           )}
         </div>
 
-        <div className="px-4 py-3 bg-pink-100 sm:px-6">
+        {/* <Reviews /> */}
+        <div className="px-4 py-3 sm:px-6">
           <div className="flex justify-center">
             <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               <Link to="/">Back</Link>
