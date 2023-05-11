@@ -48,31 +48,49 @@ function GroceryDetails() {
       className="container mx-auto px-4 py-8"
       style={{ paddingBottom: "10rem" }}
     >
-      <div className="bg-pink-50 border border-red-50 shadow overflow-hidden sm:rounded-lg">
+      <div className="border border-red-50 shadow overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6 my-4">
           <h2 className="text-lg leading-6 font-medium text-gray-900 my-4">
-            <strong>Title : </strong>
+            <strong>Name of the item : </strong>
             {showItem.name}
           </h2>
+
           <h2 className="text-lg leading-6 font-medium text-gray-900 my-4">
-            <strong>Artist : </strong>
-            {showItem.artist}
+            <strong>Category : </strong>
+            {showItem.category}
           </h2>
+
+          <img
+            className="w-full h-60 object-cover"
+            src={showItem.imageURL}
+            alt={showItem.name}
+          />
+
           <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-            <strong>Album : </strong>
-            {showItem.album}
+            <strong>Product Description : </strong>
+            {showItem.description}
+          </h3>
+
+          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
+            <strong>Price : </strong>
+            {showItem.price}
           </h3>
           <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-            <strong>Duration : </strong>
-            {showItem.time}
+            <strong>Product Quantity : </strong>
+            {showItem.quantity}
           </h3>
-          {showItem.is_favorite ? (
+          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
+            <strong>Unit : </strong>
+            {showItem.unit}
+          </h3>
+
+          {showItem.is_organic ? (
             <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-              <strong>Favorite Song : ⭐️ </strong>
+              <strong>Organic </strong>
             </h3>
           ) : (
             <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-              <strong>Favorite Song : ❌ </strong>
+              <strong>Not Organic</strong>
             </h3>
           )}
         </div>
@@ -80,7 +98,7 @@ function GroceryDetails() {
         <div className="px-4 py-3 bg-pink-100 sm:px-6">
           <div className="flex justify-center">
             <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-              <Link to="/songs">Back</Link>
+              <Link to="/">Back</Link>
             </button>
             <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <Link to={`/groceries/${id}/edit`}>Edit</Link>
