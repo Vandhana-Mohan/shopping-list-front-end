@@ -25,7 +25,7 @@ function Developers() {
 
   return (
     <div
-      className="mx-auto px-4 py-10 rounded-lg shadow-green-500/50 border shadow-lg"
+      className="mx-auto px-4 py-10 rounded-lg shadow-green-500/50 shadow-lg"
       style={{ paddingBottom: "10rem" }}
     >
       <h1 className="text-3xl font-bold tracking-wide text-gray-900 mb-8">
