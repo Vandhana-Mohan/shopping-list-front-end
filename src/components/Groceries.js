@@ -17,7 +17,7 @@ function Groceries() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-6 p-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-lg shadow-green-500/50 border shadow-md">
       {grocery.map((item) => (
         <Grocery key={item.id} grocery={item} />
       ))}
@@ -26,3 +26,5 @@ function Groceries() {
 }
 
 export default Groceries;
+
+//      gap-6 m-6 p-6

@@ -21,7 +21,7 @@ function Header() {
           <img src={Cart_Logo} alt="Shop_Logo" className="w-20 h-20" />
         </Link>
         <Link to="/">
-          <h1 className="text-white ml-2 text-2xl font-bold"> FreshPick</h1>
+          <h1 className="text-yellow-900 ml-2 text-2xl font-bold"> FreshPick</h1>
         </Link>
       </div>
 
