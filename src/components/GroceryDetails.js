@@ -3,7 +3,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Reviews from "./Reviews";
 
-
 function GroceryDetails() {
   let { id } = useParams();
 
@@ -25,7 +24,6 @@ function GroceryDetails() {
       .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
       .then((response) => {
         setShowItem(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -66,7 +64,7 @@ function GroceryDetails() {
           </h2>
 
           <img
-            className="w-full h-60 object-cover"
+            className="w-60 h-60 object-cover"
             src={showItem.image_url}
             alt={showItem.name}
           />
@@ -101,6 +99,7 @@ function GroceryDetails() {
         </div>
 
         {/* <Reviews /> */}
+
         <div className="px-4 py-3 sm:px-6">
           <div className="flex justify-center">
             <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">

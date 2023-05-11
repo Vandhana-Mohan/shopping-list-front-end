@@ -3,13 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function GroceryEditForm() {
-  let { index } = useParams();
+  let { id } = useParams();
   let navigate = useNavigate();
 
   const [editGrocery, setEditGrocery] = useState({
     name: "",
     category: "",
-    imageURL: "",
+    image_url: "",
     description: "",
     price: "",
     quantity: "",
@@ -78,7 +78,7 @@ function GroceryEditForm() {
   }
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/groceries/${index}`)
+    fetch(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setEditGrocery(data);
@@ -86,14 +86,15 @@ function GroceryEditForm() {
       .catch((error) => {
         console.log(error);
       });
-  }, [index]);
+  }, [id]);
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(`${process.env.REACT_APP_API_URL}/groceries/${id}`);
     axios
-      .put(`${process.env.REACT_APP_API_URL}/groceries/${index}`, editGrocery)
+      .put(`${process.env.REACT_APP_API_URL}/groceries/${id}`, editGrocery)
       .then(() => {
-        navigate(`/groceries/${index}`);
+        navigate(`/groceries/${id}`);
       })
       .catch((error) => {
         console.log(error);
@@ -152,7 +153,7 @@ function GroceryEditForm() {
             onChange={handleTextChange}
             placeholder="Enter the URL link of product:"
             title="URL image link of the Product -- optional"
-            value={editGrocery.imageURL}
+            value={editGrocery.image_url}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
           />
         </div>
@@ -183,7 +184,7 @@ function GroceryEditForm() {
             id="price"
             type="number"
             min="0"
-            step="0.99"
+            step="0.01"
             onChange={handleTextChange}
             value={editGrocery.price}
             placeholder="Enter price 0.00 - no $ sign needed"
@@ -200,6 +201,7 @@ function GroceryEditForm() {
             id="quantity"
             type="number"
             min="0"
+            step="0.01"
             onChange={handleTextChange}
             value={editGrocery.quantity}
             title="Quantity is required"

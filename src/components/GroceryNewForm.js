@@ -8,7 +8,7 @@ function GroceryNewForm() {
   const [newGrocery, setNewGrocery] = useState({
     name: "",
     category: "",
-    imageURL: "",
+    image_url: "",
     description: "",
     price: "",
     quantity: "",
@@ -88,7 +88,7 @@ function GroceryNewForm() {
       }));
     }
   }
-  
+
   return (
     <div className="p-4" style={{ paddingBottom: "6rem" }}>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -140,7 +140,7 @@ function GroceryNewForm() {
             onChange={handleTextChange}
             placeholder="Enter the URL link of product:"
             title="URL image link of the Product -- optional"
-            value={newGrocery.imageURL}
+            value={newGrocery.image_url}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           />
         </div>
@@ -172,7 +172,7 @@ function GroceryNewForm() {
             id="price"
             type="number"
             min="0"
-            step="0.99"
+            step="0.01"
             onChange={handleTextChange}
             value={newGrocery.price}
             placeholder="Enter price 0.00 - no $ sign needed"
@@ -189,6 +189,7 @@ function GroceryNewForm() {
             id="quantity"
             type="number"
             min="0"
+            step="0.01"
             onChange={handleTextChange}
             value={newGrocery.quantity}
             title="Quantity is required"
