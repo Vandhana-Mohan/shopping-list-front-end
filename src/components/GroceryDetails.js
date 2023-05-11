@@ -21,7 +21,10 @@ function GroceryDetails() {
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
-      .then((response) => setShowItem(response.data))
+      .then((response) => {
+        setShowItem(response.data);
+        console.log(response.data);
+      })
       .catch((error) => {
         console.log(error);
         navigate("/not-found");
@@ -64,7 +67,13 @@ function GroceryDetails() {
             className="w-full h-60 object-cover"
             src={showItem.imageURL}
             alt={showItem.name}
+            onError={(e) => console.log(e)}
+            crossOrigin="anonymous"
           />
+<div
+  className="w-full h-60 object-cover"
+  style={{ backgroundImage: `url(${showItem.imageURL})` }}
+/>
 
           <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
             <strong>Product Description : </strong>
