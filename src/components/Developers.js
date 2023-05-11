@@ -25,7 +25,7 @@ function Developers() {
 
   return (
     <div
-      className="mx-auto px-4 py-10 rounded-lg shadow-green-500/50 border shadow-md"
+      className="mx-auto px-4 py-10 rounded-lg shadow-green-500/50 border shadow-lg"
       style={{ paddingBottom: "10rem" }}
     >
       <h1 className="text-3xl font-bold tracking-wide text-gray-900 mb-8">
@@ -37,7 +37,7 @@ function Developers() {
             key={index}
             className="bg-white shadow-lg rounded-lg overflow-hidden flex"
           >
-            <img className="w-1/2" src={developer.photo} alt={developer.name} />
+            <img className="w-1/2 rounded-lg shadow-green-500/50 shadow-lg" src={developer.photo} alt={developer.name} />
             <div className="px-6 py-4 flex flex-col justify-between">
               <div>
                 <h2 className="font-bold text-2xl mb-2">{developer.name}</h2>
