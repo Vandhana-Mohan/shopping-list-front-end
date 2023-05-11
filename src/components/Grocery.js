@@ -6,11 +6,18 @@ function Grocery({ grocery }) {
       key={grocery.id}
       className="rounded-lg shadow-green-500/50 border shadow-md overflow-hidden"
     >
-      <img
-        src={grocery.image_url}
-        alt={grocery.name}
-        className="w-full h-60 object-cover"
-      />
+      {grocery.image_url ? (
+        <img
+          src={grocery.image_url}
+          alt={grocery.name}
+          className="w-full h-60 object-cover"
+        />
+      ) : (
+        <div className="w-full h-60 bg-gray-200 flex items-center justify-center">
+          <p className="text-gray-500 font-bold text-xl">No Image Available</p>
+        </div>
+      )}
+
       <div className="p-4 text-center">
         <h2 className="text-2xl font-bold mb-2">
           {grocery.name
@@ -20,15 +27,19 @@ function Grocery({ grocery }) {
         </h2>
 
         <p className="text-lg mb-2">
-          {grocery.description.charAt(0).toUpperCase() +
-            grocery.description.slice(1)}
+          {grocery.description
+            ? grocery.description.charAt(0).toUpperCase() +
+              grocery.description.slice(1)
+            : "Description : Not Available"}
         </p>
 
         <div className="flex flex-wrap mb-4 justify-center">
           <p className="text-gray-600 text-base mr-2">Category:</p>
           <p className="text-lg">
-            {grocery.category.charAt(0).toUpperCase() +
-              grocery.category.slice(1)}
+            {grocery.category
+              ? grocery.category.charAt(0).toUpperCase() +
+                grocery.category.slice(1)
+              : "Not Available"}
           </p>
         </div>
 
@@ -42,6 +53,7 @@ function Grocery({ grocery }) {
             {grocery.quantity} {grocery.unit}
           </p>
         </div>
+
         <div className="flex flex-wrap mb-4 justify-center">
           <p className="text-gray-600 text-base mr-2">Organic:</p>
           <p className="text-lg">{grocery.is_organic ? "Yes" : "No"}</p>
