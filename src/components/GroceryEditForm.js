@@ -9,7 +9,7 @@ function GroceryEditForm() {
   const [editGrocery, setEditGrocery] = useState({
     name: "",
     category: "",
-    imageURL: "",
+    image_url: "",
     description: "",
     price: "",
     quantity: "",
@@ -152,7 +152,7 @@ function GroceryEditForm() {
             onChange={handleTextChange}
             placeholder="Enter the URL link of product:"
             title="URL image link of the Product -- optional"
-            value={editGrocery.imageURL}
+            value={editGrocery.image_url}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-full"
           />
         </div>
