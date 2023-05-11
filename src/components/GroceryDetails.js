@@ -24,7 +24,6 @@ function GroceryDetails() {
       .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
       .then((response) => {
         setShowItem(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

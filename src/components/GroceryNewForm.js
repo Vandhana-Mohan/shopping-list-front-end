@@ -88,7 +88,7 @@ function GroceryNewForm() {
       }));
     }
   }
-  
+
   return (
     <div className="p-4" style={{ paddingBottom: "6rem" }}>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -172,7 +172,7 @@ function GroceryNewForm() {
             id="price"
             type="number"
             min="0"
-            step="0.99"
+            step="0.01"
             onChange={handleTextChange}
             value={newGrocery.price}
             placeholder="Enter price 0.00 - no $ sign needed"
@@ -189,6 +189,7 @@ function GroceryNewForm() {
             id="quantity"
             type="number"
             min="0"
+            step="0.01"
             onChange={handleTextChange}
             value={newGrocery.quantity}
             title="Quantity is required"
