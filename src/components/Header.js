@@ -21,17 +21,22 @@ function Header() {
           <img src={Cart_Logo} alt="Shop_Logo" className="w-20 h-20" />
         </Link>
         <Link to="/">
-          <h1 className="text-yellow-900 ml-2 text-2xl font-bold"> FreshPick</h1>
+          <h1
+            className="text-indigo-600 tracking-wider ml-2 text-5xl font-bold"
+            style={{ fontFamily: "'Great Vibes', cursive" }}
+          >
+            Fresh-Picks
+          </h1>
         </Link>
       </div>
 
-      <h2 className="text-white text-2xl font-bold">
-        {greeting} Manager, FreshPick welcomes you
+      <h2 className="text-indigo-600 text-2xl font-bold">
+        {greeting} Manager, Fresh-Picks welcomes you
       </h2>
 
       <div className="flex items-center">
         <i className="fa fa-user fa-3x animate-bounce mb-2 mr-2 text-green"></i>
-        <div className="text-white text-xl">Manager</div>
+        <div className="text-indigo-600 text-xl">Manager</div>
       </div>
     </header>
   );
