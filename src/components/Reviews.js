@@ -11,7 +11,7 @@ function Reviews() {
   let { id } = useParams();
 
   useEffect(() => {
-    axios.get(`${API}/groceries/${id}/reviews`).then((response) => {
+    axios.get(`${API}/bookmarks/${id}/reviews`).then((response) => {
       console.log(response.data);
       setReviews(response.data);
     });
@@ -19,7 +19,7 @@ function Reviews() {
 
   const handleAdd = (newReview) => {
     axios
-      .post(`${API}/groceries/${id}/reviews`, newReview)
+      .post(`${API}/bookmarks/${id}/reviews`, newReview)
       .then(
         (response) => {
           setReviews([response.data, ...reviews]);
@@ -28,9 +28,10 @@ function Reviews() {
       )
       .catch((c) => console.warn("catch", c));
   };
+
   const handleDelete = (reviewId) => {
     axios
-      .delete(`${API}/groceries/${id}/reviews/${reviewId}`)
+      .delete(`${API}/bookmarks/${id}/reviews/${reviewId}`)
       .then(
         (response) => {
           const copyReviewArray = [...reviews];
@@ -45,6 +46,22 @@ function Reviews() {
       .catch((c) => console.warn("catch", c));
   };
 
+  const handleEdit = (updatedReview) => {
+    console.log(updatedReview);
+    axios
+      .put(`${API}/bookmarks/${id}/reviews/${updatedReview.id}`, updatedReview)
+      .then((response) => {
+        console.log(" in the response");
+        const copyReviewArray = [...reviews];
+        const indexUpdatedReview = copyReviewArray.findIndex((review) => {
+          return review.id === updatedReview.id;
+        });
+        copyReviewArray[indexUpdatedReview] = response.data;
+        setReviews(copyReviewArray);
+      })
+      .catch((c) => console.warn("catch", c));
+  };
+
   return (
     <section className="Reviews">
       <h2>Reviews</h2>
@@ -52,7 +69,12 @@ function Reviews() {
         <h3>Add a New Review</h3>
       </ReviewForm>
       {reviews.map((review) => (
-        <Review key={review.id} review={review} handleDelete ={handleDelete}/>
+        <Review
+          key={review.id}
+          review={review}
+          handleDelete={handleDelete}
+          handleSubmit={handleEdit}
+        />
       ))}
     </section>
   );
