@@ -6,18 +6,24 @@ function Grocery({ grocery }) {
       key={grocery.id}
       className="rounded-lg shadow-green-500/50 border shadow-md overflow-hidden"
     >
-      {grocery.image_url ? (
-        <img
-          src={grocery.image_url}
-          alt={grocery.name}
-          className="w-full h-60 object-cover"
-        />
-      ) : (
-        <div className="w-full h-60 bg-gray-200 flex items-center justify-center">
-          <p className="text-gray-500 font-bold text-xl">No Image Available</p>
-        </div>
-      )}
-
+      <Link
+        to={`/groceries/${grocery.id}`}
+        className="py-2 px-4 rounded-lg shadow-green-500/50 shadow-md w-max transition-colors duration-300"
+      >
+        {grocery.image_url ? (
+          <img
+            src={grocery.image_url}
+            alt={grocery.name}
+            className="w-full h-60 object-cover"
+          />
+        ) : (
+          <div className="w-full h-60 bg-gray-200 flex items-center justify-center">
+            <p className="text-gray-500 font-bold text-xl">
+              No Image Available
+            </p>
+          </div>
+        )}
+      </Link>
       <div className="p-4 text-center">
         <Link
           to={`/groceries/${grocery.id}`}

@@ -45,79 +45,105 @@ function GroceryDetails() {
         });
     }
   }
-
   return (
-    <div
-      className="container mx-auto px-4 py-8"
-      style={{ paddingBottom: "10rem" }}
-    >
-      <div className="border border-red-50 shadow overflow-hidden sm:rounded-lg">
-        <div className="px-4 py-5 sm:px-6 my-4">
-          <h2 className="text-lg leading-6 font-medium text-gray-900 my-4">
-            <strong>Name of the item : </strong>
-            {showItem.name}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="flex flex-col justify-between">
+        <div className="flex flex-col space-y-4 p-6 m-6">
+          <h2 className="text-2xl font-bold mb-2">
+            <strong>Name:</strong>{" "}
+            {showItem.name
+              .split(" ")
+              .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
+              .join(" ")}
           </h2>
 
-          <h2 className="text-lg leading-6 font-medium text-gray-900 my-4">
-            <strong>Category : </strong>
-            {showItem.category}
-          </h2>
+          <div className="flex items-center space-x-2">
+            <h3 className="text-lg mb-2">
+              <strong>Product Description:</strong>
+            </h3>
+            <p className="text-lg mb-2">
+              {showItem.description
+                ? showItem.description.charAt(0).toUpperCase() +
+                  showItem.description.slice(1)
+                : "Not Available"}
+            </p>
+          </div>
 
-          <img
-            className="w-60 h-60 object-cover"
-            src={showItem.image_url}
-            alt={showItem.name}
-          />
+          <div className="flex items-center space-x-2">
+            <h3 className="text-lg mb-2">
+              <strong>Category:</strong>
+            </h3>
+            <p className="text-lg mb-2">
+              {showItem.category
+                ? showItem.category.charAt(0).toUpperCase() +
+                  showItem.category.slice(1)
+                : "Not Available"}
+            </p>
+          </div>
 
-          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-            <strong>Product Description : </strong>
-            {showItem.description}
+          <h3 className="text-lg mb-2">
+            <strong>Price:</strong> {showItem.price} USD
           </h3>
-
-          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-            <strong>Price : </strong>
-            {showItem.price}
+          <h3 className="text-lg mb-2">
+            <strong>Product Quantity:</strong> {showItem.quantity}
           </h3>
-          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-            <strong>Product Quantity : </strong>
-            {showItem.quantity}
+          <h3 className="text-lg mb-2">
+            <strong>Unit:</strong>{" "}
+            {showItem.unit ? showItem.unit : "Not Available"}
           </h3>
-          <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-            <strong>Unit : </strong>
-            {showItem.unit}
-          </h3>
-
           {showItem.is_organic ? (
-            <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
-              <strong>Organic </strong>
+            <h3 className="text-lg mb-2">
+              <strong>Organic</strong>
             </h3>
           ) : (
-            <h3 className="mt-1 max-w-2xl text-sm text-gray-900 my-4">
+            <h3 className="text-lg mb-2">
               <strong>Not Organic</strong>
             </h3>
           )}
         </div>
-
         {/* <Reviews /> */}
-
-        <div className="px-4 py-3 sm:px-6">
-          <div className="flex justify-center">
-            <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-              <Link to="/">Back</Link>
-            </button>
-            <button className="mr-6 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <Link to={`/groceries/${id}/edit`}>Edit</Link>
-            </button>
-            <button
-              className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-              onClick={handleDelete}
-            >
-              Delete
-            </button>
-          </div>
+        <div className="flex justify-end space-x-4">
+          <button className="bg-green-300 hover:bg-green-100 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-green-500/50 border shadow-md">
+            <Link to="/">Back</Link>
+          </button>
+          <button className="bg-green-300 hover:bg-green-100 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-green-500/50 border shadow-md">
+            <Link to={`/groceries/${id}/edit`}>Edit</Link>
+          </button>
+          <button
+            className="bg-green-300 hover:bg-green-100 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-green-500/50 border shadow-md"
+            onClick={handleDelete}
+          >
+            Delete
+          </button>
         </div>
+      </div>
+
+      <div className="p-6 m-6 rounded-lg shadow-green-500/50 border shadow-md">
+        {showItem.image_url ? (
+          <div className="relative">
+            <img
+              className="w-full h-auto object-cover max-w-max max-h-full"
+              src={showItem.image_url}
+              alt={showItem.name}
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-0 transition duration-300 opacity-0 hover:opacity-100 lg:scale-150 md:transform hover:transition-transform items-center justify-center">
+              <img
+                className="w-full h-full object-contain"
+                src={showItem.image_url}
+                alt={showItem.name}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="w-96 h-96 bg-gray-200 flex items-center justify-center">
+            <p className="text-gray-500 font-bold text-xl text-center">
+              No Image Available
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
 export default GroceryDetails;
