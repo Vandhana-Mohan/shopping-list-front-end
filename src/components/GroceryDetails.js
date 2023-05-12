@@ -4,7 +4,7 @@ import axios from "axios";
 import Reviews from "./Reviews";
 
 function GroceryDetails() {
-  let { id } = useParams();
+  let { id, query } = useParams();
 
   let navigate = useNavigate();
 
@@ -20,16 +20,28 @@ function GroceryDetails() {
   });
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
-      .then((response) => {
-        setShowItem(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        navigate("/not-found");
-      });
-  }, [id, navigate]);
+    if (id) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
+        .then((response) => {
+          setShowItem(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          navigate("/not-found");
+        });
+    } else if (query) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/search?query=${query}`)
+        .then((response) => {
+          setShowItem(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          navigate("/not-found");
+        });
+    }
+  }, [id, query, navigate]);
 
   function handleDelete() {
     if (window.confirm("Are you sure you want to delete this item ? ")) {
@@ -118,20 +130,23 @@ function GroceryDetails() {
         </div>
       </div>
 
-      <div className="p-6 m-6 rounded-lg shadow-green-500/50 border shadow-md">
+      <div className="p-6 m-6 rounded-lg shadow-green-500/50 border shadow-lg relative flex justify-center">
         {showItem.image_url ? (
-          <div className="relative">
+          <div>
             <img
               className="w-full h-auto object-cover max-w-max max-h-full"
               src={showItem.image_url}
               alt={showItem.name}
             />
-            <div className="absolute inset-0 bg-black bg-opacity-0 transition duration-300 opacity-0 hover:opacity-100 lg:scale-150 md:transform hover:transition-transform items-center justify-center">
-              <img
-                className="w-full h-full object-contain"
-                src={showItem.image_url}
-                alt={showItem.name}
-              />
+
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-75 transition duration-300">
+                <img
+                  className="w-full h-full object-contain hover:scale-150 transition duration-300"
+                  src={showItem.image_url}
+                  alt={showItem.name}
+                />
+              </div>
             </div>
           </div>
         ) : (
