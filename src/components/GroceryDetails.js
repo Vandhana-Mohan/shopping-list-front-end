@@ -4,7 +4,7 @@ import axios from "axios";
 import Reviews from "./Reviews";
 
 function GroceryDetails() {
-  let { id } = useParams();
+  let { id, query } = useParams();
 
   let navigate = useNavigate();
 
@@ -20,16 +20,28 @@ function GroceryDetails() {
   });
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
-      .then((response) => {
-        setShowItem(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        navigate("/not-found");
-      });
-  }, [id, navigate]);
+    if (id) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
+        .then((response) => {
+          setShowItem(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          navigate("/not-found");
+        });
+    } else if (query) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/search?query=${query}`)
+        .then((response) => {
+          setShowItem(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          navigate("/not-found");
+        });
+    }
+  }, [id, query, navigate]);
 
   function handleDelete() {
     if (window.confirm("Are you sure you want to delete this item ? ")) {

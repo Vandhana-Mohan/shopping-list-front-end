@@ -15,6 +15,7 @@ import Header from "./components/Header";
 import Developers from "./components/Developers";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
+import GroceryDetails from "./components/GroceryDetails";
 
 function App() {
   return (
@@ -30,6 +31,12 @@ function App() {
             <Route path="/groceries/:id/edit" element={<Edit />} />
             <Route path="/groceries/new" element={<New />} />
             <Route path="/groceries/:id" element={<Show />} />
+
+            <Route
+              path="/search/:query"
+              element={({ params }) => <GroceryDetails query={params.query} />}
+            />
+
             <Route path="/" element={<Index />} />
             <Route path="*" element={<FourOFour />} />
           </Routes>
