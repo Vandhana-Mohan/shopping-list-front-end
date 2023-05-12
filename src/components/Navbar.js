@@ -23,7 +23,7 @@ function Navbar() {
             className="bg-transparent text-white py-2 px-4 rounded"
           >
             {" "}
-            Add New
+            Add New Item
           </Link>{" "}
         </li>
 
@@ -47,4 +47,5 @@ function Navbar() {
     </nav>
   );
 }
+
 export default Navbar;
