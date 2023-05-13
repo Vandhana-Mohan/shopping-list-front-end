@@ -4,7 +4,7 @@ import axios from "axios";
 import Reviews from "./Reviews";
 
 function GroceryDetails() {
-  let { id, query } = useParams();
+  let { id } = useParams();
 
   let navigate = useNavigate();
 
@@ -30,18 +30,8 @@ function GroceryDetails() {
           console.log(error);
           navigate("/not-found");
         });
-    } else if (query) {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/search?query=${query}`)
-        .then((response) => {
-          setShowItem(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-          navigate("/not-found");
-        });
-    }
-  }, [id, query, navigate]);
+    } 
+  }, [id, navigate]);
 
   function handleDelete() {
     if (window.confirm("Are you sure you want to delete this item ? ")) {
