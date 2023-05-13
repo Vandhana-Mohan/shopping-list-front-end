@@ -19,6 +19,7 @@ function Navbar() {
             Add New Item
           </Link>
         </li>
+        
         <FilterCategory />
       </ul>
       <Search />
