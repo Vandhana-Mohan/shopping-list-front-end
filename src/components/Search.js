@@ -13,7 +13,7 @@ function Search() {
     navigate(`/search/${searchInput}`);
   }
   return (
-    <div className="mb-3 flex items-center">
+    <div className="mt-4 flex items-center">
       <div className="relative mb-4 flex w-full flex-wrap items-stretch">
         <input
           type="text"

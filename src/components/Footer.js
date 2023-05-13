@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer>
-      <nav className="bg-gray-700 text-white py-4 fixed bottom-0 w-full">
-        <ul className="flex justify-center space-x-16">
+      <nav className="bg-gray-700 text-white fixed bottom-0 w-full">
+        <ul className="flex justify-center space-x-16 mt-4">
           <li className="cursor-pointer hover:text-gray-300 text-lg">
             <Link to="/about"> About Us</Link>
           </li>
@@ -72,7 +72,7 @@ function Footer() {
             </Link>
           </li>
         </ul>
-        <p className="text-center py-1 pb-0 text-gray-400 mt-4">
+        <p className="text-center pb-0 text-gray-400 mt-1">
           © 2023 Touhami Ben & Vandhana Mohan. All rights reserved.
         </p>
       </nav>
