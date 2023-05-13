@@ -52,7 +52,7 @@ function GroceryNewForm() {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        console.log("2345", error);
         navigate("/not-found");
       });
   }
@@ -131,11 +131,11 @@ function GroceryNewForm() {
         </div>
 
         <div className="flex flex-col w-3/4">
-          <label htmlFor="imageURL" className="mb-1 font-medium text-gray-700">
+          <label htmlFor="image_url" className="mb-1 font-medium text-gray-700">
             URL (Image) link of the product : (Optional)
           </label>
           <input
-            id="imageURL"
+            id="image_url"
             type="text"
             onChange={handleTextChange}
             placeholder="Enter the URL link of product:"

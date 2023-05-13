@@ -81,6 +81,8 @@ function GroceryEditForm() {
     fetch(`${process.env.REACT_APP_API_URL}/groceries/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        delete data.id;
+
         setEditGrocery(data);
       })
       .catch((error) => {
@@ -90,7 +92,8 @@ function GroceryEditForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(`${process.env.REACT_APP_API_URL}/groceries/${id}`);
+    console.log("3233", editGrocery);
+    // console.log(`${process.env.REACT_APP_API_URL}/groceries/${id}`);
     axios
       .put(`${process.env.REACT_APP_API_URL}/groceries/${id}`, editGrocery)
       .then(() => {

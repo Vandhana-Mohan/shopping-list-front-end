@@ -1,10 +1,11 @@
 import Vandhana from "../assets/vandhana.jpeg";
+import Touhami from "../assets/touhami.jpg";
 
 function Developers() {
   const developers = [
     {
       name: "Touhami Ben",
-      photo: "https://via.placeholder.com/50",
+      photo: Touhami,
       bio: "I am a full-stack web developer with a passion for creating elegant solutions to complex problems.",
       hobbies: "I enjoy hiking and playing soccer with friends.",
       github: "https://github.com/touhami-ben",
