@@ -16,6 +16,7 @@ import Developers from "./components/Developers";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import Categories from "./components/Categories";
+import FilterCategory from "./components/FilterCategory";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route path="/groceries/:id/edit" element={<Edit />} />
             <Route path="/groceries/new" element={<New />} />
             <Route path="/groceries/:id" element={<Show />} />
-            <Route path="/groceries/categories" element={<Categories />} />
+            <Route path="/categories" element={<Categories />} />
             <Route path="/" element={<Index />} />
             <Route path="*" element={<FourOFour />} />
           </Routes>

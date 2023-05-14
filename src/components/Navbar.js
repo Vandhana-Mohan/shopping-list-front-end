@@ -28,7 +28,7 @@ function Navbar() {
         </li>
         <li className="cursor-pointer hover:text-gray-300 mr-4 text-xl font-bold mb-6">
           <Link
-            to="/groceries/categories"
+            to="/categories"
             className="bg-transparent text-white py-2 px-4 rounded"
           >
             Categories

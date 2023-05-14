@@ -13,7 +13,7 @@ function Categories() {
       <div className="flex flex-col items-center">
         <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md">
           <button
-            onClick={() => handleCategoryClick("dairy")}
+            onClick={() => handleCategoryClick("Dairy")}
             className="mt-2 font-bold text-black-100 text-center text-3xl tracking-wide"
           >
             Dairy
@@ -21,7 +21,7 @@ function Categories() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center">
+      {/* <div className="flex flex-col items-center">
         <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md">
           <button
             onClick={() => handleCategoryClick("vegetables")}
@@ -82,7 +82,7 @@ function Categories() {
             Frozen Foods
           </button>
         </div>
-      </div>
+      </div> */}
       <Groceries category={selectedCategory} />
     </div>
   );
