@@ -11,7 +11,7 @@ function Reviews() {
   let { id } = useParams();
 
   useEffect(() => {
-    axios.get(`${API}/bookmarks/${id}/reviews`).then((response) => {
+    axios.get(`${API}/groceries/${id}/reviews`).then((response) => {
       console.log(response.data);
       setReviews(response.data);
     });
@@ -19,7 +19,7 @@ function Reviews() {
 
   const handleAdd = (newReview) => {
     axios
-      .post(`${API}/bookmarks/${id}/reviews`, newReview)
+      .post(`${API}/groceries/${id}/reviews`, newReview)
       .then(
         (response) => {
           setReviews([response.data, ...reviews]);
@@ -31,7 +31,7 @@ function Reviews() {
 
   const handleDelete = (reviewId) => {
     axios
-      .delete(`${API}/bookmarks/${id}/reviews/${reviewId}`)
+      .delete(`${API}/groceries/${id}/reviews/${reviewId}`)
       .then(
         (response) => {
           const copyReviewArray = [...reviews];
@@ -49,7 +49,7 @@ function Reviews() {
   const handleEdit = (updatedReview) => {
     console.log(updatedReview);
     axios
-      .put(`${API}/bookmarks/${id}/reviews/${updatedReview.id}`, updatedReview)
+      .put(`${API}/groceries/${id}/reviews/${updatedReview.id}`, updatedReview)
       .then((response) => {
         console.log(" in the response");
         const copyReviewArray = [...reviews];

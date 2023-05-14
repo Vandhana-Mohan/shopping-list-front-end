@@ -6,3 +6,19 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.Reviews {
+  background-color: whitesmoke;
+  padding: 1em;
+  box-shadow: 2px 2px 4px silver;
+}
+
+.Reviews > div {
+  padding: 1em;
+  box-shadow: 0px 0px 2px silver;
+  background-color: ghostwhite;
+}
+.Reviews div:nth-child(odd) {
+  background-color: aliceblue;
+}
