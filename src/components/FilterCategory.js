@@ -96,15 +96,12 @@
 // }
 // export default FilterCategory;
 
-///groceries/categories/category
-
-function FilterCategory({ grocery }) {
-  console.log("fgnew", grocery)
+function FilterCategory({ cat }) {
   return (
     <div>
-      <h2> hi {grocery.name} </h2>
+      <h2> hi {cat.name} </h2>
     </div>
-  )
+  );
 }
 
 // .food {

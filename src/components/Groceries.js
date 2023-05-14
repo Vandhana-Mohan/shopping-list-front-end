@@ -29,28 +29,14 @@ function Groceries({ category }) {
   }, [category, grocery]);
 
   return (
-    <div>
-      {category ? (
-        filteredGrocery.map((item) => (
-          <FilterCategory key={item.id} grocery={item} />
-        ))
-      ) : (
-        grocery.map((item) => (
-          <Grocery key={item.id} grocery={item} />
-        ))
-      )}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 rounded-lg shadow-green-500/50 border shadow-md">
+      {category
+        ? filteredGrocery.map((item) => (
+            <FilterCategory key={item.id} cat={item} />
+          ))
+        : grocery.map((item) => <Grocery key={item.id} grocery={item} />)}
     </div>
   );
 }
-  
-
-  // return (
-  //   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 rounded-lg shadow-green-500/50 border shadow-md">
-  //     {filteredGrocery.map((item) => (
-  //       <Grocery key={item.id} grocery={item} />
-  //     ))}
-  //   </div>
-  // );
-
 
 export default Groceries;

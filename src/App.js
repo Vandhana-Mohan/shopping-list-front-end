@@ -16,7 +16,7 @@ import Developers from "./components/Developers";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import Categories from "./components/Categories";
-import FilterCategory from "./components/FilterCategory";
+// import FilterCategory from "./components/FilterCategory";
 
 function App() {
   return (
