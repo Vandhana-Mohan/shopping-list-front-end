@@ -43,7 +43,7 @@ function ReviewForm(props) {
     <div className="p-4" style={{ paddingBottom: "6rem" }}>
       {props.children}
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col w-3/4">
+        <div className="flex flex-col w-full">
           <label htmlFor="reviewer" className="mb-1 font-medium text-gray-700">
             Name:
           </label>
@@ -58,7 +58,7 @@ function ReviewForm(props) {
           />
         </div>
 
-        <div className="flex flex-col w-3/4">
+        <div className="flex flex-col w-full">
           <label htmlFor="title" className="mb-1 font-medium text-gray-700">
             Title:
           </label>
@@ -66,13 +66,14 @@ function ReviewForm(props) {
             id="title"
             type="text"
             required
+            placeholder="Title"
             value={review.title}
             onChange={handleTextChange}
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           />
         </div>
 
-        <div className="flex flex-col w-3/4">
+        <div className="flex flex-col w-full">
           <label htmlFor="rating" className="mb-1 font-medium text-gray-700">
             Rating:
           </label>
@@ -85,6 +86,7 @@ function ReviewForm(props) {
             step="1"
             value={review.rating}
             onChange={handleTextChange}
+            placeholder="Your Rating"
             className="border border-gray-300 rounded-md px-3 py-2 relative bg-white shadow outline-none focus:outline-none focus:ring lg:w-3/4"
           />
         </div>
