@@ -149,7 +149,7 @@ function GroceryDetails() {
         )}
       </div>
       
-    <Reviews />
+    {/* <Reviews /> */}
     </div>
   );
 }
