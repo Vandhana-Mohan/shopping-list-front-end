@@ -103,7 +103,6 @@ function GroceryDetails() {
             </h3>
           )}
         </div>
-        {/* <Reviews /> */}
         <div className="flex justify-end space-x-4">
           <button className="bg-green-300 hover:bg-green-100 text-xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-green-500/50 border shadow-md">
             <Link to="/">Back</Link>
@@ -117,6 +116,8 @@ function GroceryDetails() {
           >
             Delete
           </button>
+
+          
         </div>
       </div>
 
@@ -147,6 +148,8 @@ function GroceryDetails() {
           </div>
         )}
       </div>
+      
+    <Reviews />
     </div>
   );
 }
