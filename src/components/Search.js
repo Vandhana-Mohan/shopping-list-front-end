@@ -1,9 +1,9 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 function Search() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [grocery, setGrocery] = useState([]);
   const [clicked, setClicked] = useState(false);
 
@@ -31,11 +31,10 @@ function Search() {
   };
 
   const handleSearch = () => {
-    setQuery('');
+    setQuery("");
     setGrocery([]);
     setClicked(true);
   };
-
 
   return (
     <div className="mt-4 flex items-center">
@@ -49,8 +48,7 @@ function Search() {
           value={query}
           onChange={handleInputChange}
         />
-          
-      
+
         <button
           className="relative z-[2] flex items-center rounded-r bg-white px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-900 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg absolute top-0 right-0 h-full text-center"
           type="button"
@@ -76,24 +74,26 @@ function Search() {
             />
           </svg>
         </button>
-      </div>
-      <div>
-  {grocery.length > 0 ? (
+
         <div>
-          {grocery.map((item) => (
-            <div key={item.id}>
-              <Link to={`/grocery/${item.id}`} onClick={handleSearch}>
-                <h2>{item.name}</h2>
-              </Link>
-              {!clicked && <img src={item.image} alt={item.name} width='150px' />}
+          {grocery.length > 0 ? (
+            <div>
+              {grocery.map((item) => (
+                <div key={item.id}>
+                  <Link to={`/grocery/${item.id}`} onClick={handleSearch}>
+                    <h2>{item.name}</h2>
+                  </Link>
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <div>
+              {query && !clicked ? "This food item does not exist." : null}
+            </div>
+          )}
         </div>
-      ) : (
-        <div>{query && !clicked ? 'This food item does not exist.' : null}</div>
-      )}
-    </div>
+      </div>
     </div>
   );
 }
-export default Search
+export default Search;
