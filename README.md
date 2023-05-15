@@ -1,8 +1,8 @@
-# FreshPick - Shopping Cart Application
+# Fresh Picks - Grocery Store Application
 
-[FreshPick](https://fresh-picks.netlify.app/)
+Deployed Front End [Fresh Picks](https://fresh-picks.netlify.app/)
 
-[Backend](https://shopping-list-back-end-s39o.onrender.com)
+Deployed Back End [Backend](https://shopping-list-back-end-s39o.onrender.com)
 
 ---
 
