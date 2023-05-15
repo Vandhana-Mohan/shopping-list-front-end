@@ -2,10 +2,6 @@ import { Link } from "react-router-dom";
 
 function Grocery({ grocery }) {
   return (
-    <Link
-    to={`/groceries/${grocery.id}`}
-    className="rounded-lg shadow-green-500/50 shadow-md transition-colors duration-300"
-  >
     <div
       key={grocery.id}
       className="rounded-lg shadow-green-500/50 border shadow-md overflow-hidden"
@@ -83,7 +79,7 @@ function Grocery({ grocery }) {
         </div>
       </div>
     </div>
-    </Link>
   );
 }
+
 export default Grocery;

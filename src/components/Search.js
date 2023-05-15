@@ -1,31 +1,56 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Search() {
-  const [searchInput, setSearchInput] = useState("");
+  const [query, setQuery] = useState("");
+  const [grocery, setGrocery] = useState([]);
+  const [clicked, setClicked] = useState(false);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (query) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/groceries`)
+        .then((response) => {
+          const grocery = response.data;
+          const filteredGrocery = grocery.filter((item) =>
+            item.name.toLowerCase().includes(query.toLowerCase())
+          );
+          setGrocery(filteredGrocery);
+        })
+        .catch((error) => console.log(error));
+    } else {
+      setGrocery([]);
+    }
+    setClicked(false);
+  }, [query]);
 
-  function handleInputChange(event) {
-    setSearchInput(event.target.value);
-  }
-  function handleSearch() {
-    navigate(`/search/${searchInput}`);
-  }
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+    setClicked(false);
+  };
+
+  const handleSearch = () => {
+    setQuery("");
+    setGrocery([]);
+    setClicked(true);
+  };
+
   return (
     <div className="mt-4 flex items-center">
       <div className="relative mb-4 flex w-full flex-wrap items-stretch">
         <input
-          type="text"
+          type="search"
           className="relative flex-auto bg-white bg-clip-padding px-3 py-[0.25rem] text-base font-bold leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-black-200 dark:focus:border-primary bg-white rounded-l-lg w-96 py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent"
-          placeholder="What can we help you find?"
+          placeholder="What can we help you find ?"
           aria-label="Search"
           aria-describedby="button-addon1"
-          value={searchInput}
+          value={query}
           onChange={handleInputChange}
         />
+
         <button
-          className="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-300 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg absolute top-0 right-0 h-full text-center"
+          className="relative z-[2] flex items-center rounded-r bg-white px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-900 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg absolute top-0 right-0 h-full text-center"
           type="button"
           id="button-addon1"
           data-te-ripple-init
@@ -35,9 +60,9 @@ function Search() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
-            fill="currentColor"
+            fill="#000000"
             className="h-6 w-6 mx-auto my-auto"
-            stroke="currentColor"
+            stroke="#000000"
           >
             <path
               fillRule="evenodd"
@@ -45,10 +70,28 @@ function Search() {
               clipRule="evenodd"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
+              strokeWidth="0"
             />
           </svg>
         </button>
+
+        <div>
+          {grocery.length > 0 ? (
+            <div>
+              {grocery.map((item) => (
+                <div key={item.id}>
+                  <Link to={`/grocery/${item.id}`} onClick={handleSearch}>
+                    <h2>{item.name}</h2>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>
+              {query && !clicked ? "This food item does not exist." : null}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

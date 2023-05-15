@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import Grocery from "./Grocery";
 
 function Groceries() {

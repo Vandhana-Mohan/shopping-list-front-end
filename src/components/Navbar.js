@@ -12,13 +12,13 @@ function Navbar() {
           className="w-20 h-20 shadow-indigo-500/50 shadow-lg"
         />
       </Link>
-      <ul className="flex flex-col sm:flex-row mt-4 justify-around">
-        <li className="cursor-pointer hover:text-gray-300 text-xl sm:text-2xl font-bold mb-6">
+      <ul className="flex flex-col sm:flex-row mt-6 justify-around">
+        <li className="cursor-pointer hover:text-gray-300 text-xl font-bold mb-6">
           <Link to="/" className="bg-transparent text-white py-2 px-4 rounded">
             Explore All
           </Link>
         </li>
-        <li className="cursor-pointer hover:text-gray-300 mr-4 text-xl sm:text-2xl font-bold mb-6">
+        <li className="cursor-pointer hover:text-gray-300 mr-4 text-xl font-bold mb-6">
           <Link
             to="/groceries/new"
             className="bg-transparent text-white py-2 px-4 rounded"
@@ -26,9 +26,9 @@ function Navbar() {
             Add New Item
           </Link>
         </li>
-        <li className="cursor-pointer hover:text-gray-300 mr-4 text-xl sm:text-2xl font-bold mb-6">
+        <li className="cursor-pointer hover:text-gray-300 mr-4 text-xl font-bold mb-6">
           <Link
-            to="/groceries/categories"
+            to="/categories"
             className="bg-transparent text-white py-2 px-4 rounded"
           >
             Categories
