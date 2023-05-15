@@ -1,10 +1,8 @@
 # FreshPick - Shopping Cart Application
 
-[FreshPick](https://...) is a budget application app that helps users keep track of their finances. The app is built using React, HTML, Tailwind, and JavaScript, and it uses an API from a backend created with Express and PostgresSQL.
+[FreshPick](https://fresh-picks.netlify.app/)
 
-### Introduction
-
-This budget application app helps users keep track of their finances by allowing them to add, edit, and delete transactions. The interface is simple and easy to use, making it accessible to users of all experience levels. Additionally, the app includes an About Us page and a footer with social media icons to help users learn more about the developers and stay connected.
+[Backend](https://shopping-list-back-end-s39o.onrender.com)
 
 ---
 
@@ -37,21 +35,14 @@ This app includes the following features:
 
 ### Completed Stretch Goals
 
-   - Trello board
-   - Read me for front end and back end
-   - Added Google font
-   - Changed favicon
-   - Changed title
-   - Added Tailwind Css
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - 
-   - validations in back end and front end
-   - add about us page, contact us page, header, footer, social media icons for interaction
+- Trello board
+- Read me for front end and back end
+- Added Google font
+- Changed favicon
+- Changed title
+- Added Tailwind Css
+- validations in back end and front end
+- add about us page, contact us page, header, footer, social media icons for interaction
 
 ## Skills
 
@@ -143,7 +134,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -214,4 +204,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
