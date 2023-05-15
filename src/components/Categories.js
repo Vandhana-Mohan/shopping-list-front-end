@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import FilterCategory from "./FilterCategory";
-import { Link } from "react-router-dom";
 
 function Categories() {
   const [selectedCategory, setSelectedCategory] = useState("");

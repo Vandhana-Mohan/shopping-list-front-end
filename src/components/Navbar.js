@@ -1,6 +1,7 @@
 import Search from "./Search";
 import { Link } from "react-router-dom";
 import Cart_Logo from "../assets/Cart_Logo.png";
+import TotalItems from "./TotalItems";
 
 function Navbar() {
   return (
@@ -34,7 +35,9 @@ function Navbar() {
             Categories
           </Link>
         </li>
+
       </ul>
+      <TotalItems />
       <Search />
     </nav>
   );
