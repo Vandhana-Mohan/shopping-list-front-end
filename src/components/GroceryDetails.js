@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import Reviews from "./Reviews";
+import Reviews from "../components/Reviews";
 
 function GroceryDetails() {
   let { id } = useParams();
@@ -30,7 +30,7 @@ function GroceryDetails() {
           console.log(error);
           navigate("/not-found");
         });
-    } 
+    }
   }, [id, navigate]);
 
   function handleDelete() {
@@ -116,8 +116,6 @@ function GroceryDetails() {
           >
             Delete
           </button>
-
-          
         </div>
       </div>
 
@@ -148,8 +146,8 @@ function GroceryDetails() {
           </div>
         )}
       </div>
-      
-    {/* <Reviews /> */}
+
+      <Reviews />
     </div>
   );
 }

@@ -4,7 +4,7 @@ function FilterCategory({ cat }) {
   return (
     <div
       key={cat.id}
-      // className="rounded-lg shadow-green-500/50 border shadow-md overflow-hidden"
+      className="rounded-lg shadow-green-500/50 border shadow-md overflow-hidden"
     >
       <Link
         to={`/groceries/${cat.id}`}
