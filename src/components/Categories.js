@@ -1,45 +1,62 @@
-import { useState } from "react";
-import Groceries from "./Groceries";
-// import { useNavigate, Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import FilterCategory from "./FilterCategory";
 
 function Categories() {
-  // const navigate = useNavigate();
-  // const { cat } = useParams();
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [grocery, setGrocery] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/groceries`)
+      .then((response) => response.json())
+      .then((data) => {
+        setGrocery(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      const filtered = grocery.filter(
+        (product) => product.category === selectedCategory
+      );
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(grocery);
+    }
+  }, [selectedCategory, grocery]);
 
   const handleCategoryClick = (category) => {
-    console.log(category);
     setSelectedCategory(category);
-    // navigate(`/categories/filter/${category}`);
   };
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
       <div className="flex flex-col items-center">
-        {/* <Link to={`/categories/filter/dairy`}> */}
-          <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md ">
-            <button
-              onClick={() => handleCategoryClick("Dairy")}
-              className="mt-2 font-bold text-black-100 text-center text-3xl tracking-wide"
-            >
-              Dairy
-            </button>
-          </div>
-        {/* </Link> */}
+        <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md ">
+          <button
+            className="mt-2 font-bold text-black-100 text-center text-3xl tracking-wide"
+            onClick={() => handleCategoryClick("Dairy")}
+          >
+            Dairy
+          </button>
+        </div>
       </div>
 
-      {/* <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md">
           <button
-            onClick={() => handleCategoryClick("vegetables")}
+            onClick={() => handleCategoryClick("Vegetables")}
             className="mt-2 font-bold text-black-100 text-center text-3xl tracking-wide"
           >
             Vegetables
           </button>
         </div>
-      </div> */}
+      </div>
 
-      {/* <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md">
           <button
             onClick={() => handleCategoryClick("fruits")}
@@ -48,15 +65,18 @@ function Categories() {
             Fruits
           </button>
         </div>
-      </div> */}
+      </div>
 
-      {/* <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md">
-          <button className="mt-2 font-bold text-black-100 text-center text-3xl tracking-wide">
+          <button
+            onClick={() => handleCategoryClick("Bakery")}
+            className="mt-2 font-bold text-black-100 text-center text-3xl tracking-wide"
+          >
             Bakery
           </button>
         </div>
-      </div> */}
+      </div>
 
       <div className="flex flex-col items-center">
         <div className="bg-green-50 rounded-full w-40 h-40 flex items-center justify-center rounded-lg shadow-green-500/50 shadow-md">
@@ -93,7 +113,14 @@ function Categories() {
           </button>
         </div>
       </div>
-      <Groceries category={selectedCategory} />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 rounded-lg shadow-green-500/50 border shadow-md">
+        {selectedCategory
+          ? filteredProducts.map((item) => (
+              <FilterCategory key={item.id} cat={item} />
+            ))
+          : null}
+      </div>
     </div>
   );
 }
