@@ -8,7 +8,7 @@ function TotalItems() {
       .then((res) => res.json())
       .then((data) => {
         setTotalItems(data);
-        setTotal(data.length); // Count the total number of items
+        setTotal(data.length); 
       })
       .catch((error) => {
         console.error(error);

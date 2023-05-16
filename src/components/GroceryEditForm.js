@@ -147,11 +147,11 @@ function GroceryEditForm() {
         </div>
 
         <div className="flex flex-col w-1/2">
-          <label htmlFor="imageURL" className="mb-1 font-medium text-gray-700">
+          <label htmlFor="image_url" className="mb-1 font-medium text-gray-700">
             URL (Image) link of the product :
           </label>
           <input
-            id="imageURL"
+            id="image_url"
             type="text"
             onChange={handleTextChange}
             placeholder="Enter the URL link of product:"
