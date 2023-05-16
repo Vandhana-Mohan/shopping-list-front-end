@@ -84,7 +84,7 @@ function Search() {
               ))}
             </div>
           ) : (
-            <div>
+            <div className="text-2xl text-white font-bold mb-6">
               {query && !clicked ? "This item does not exist." : null}
             </div>
           )}

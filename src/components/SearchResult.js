@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-// {`/search/${item.id}`} >
 function SearchResult({ search }) {
   return (
     <div
@@ -8,7 +7,7 @@ function SearchResult({ search }) {
       className="rounded-lg shadow-green-500/50 border shadow-md overflow-hidden"
     >
       <Link
-        to={`/groceries/${search.id}`}
+        to={`/groceries/search/${search.id}`}
         className="py-2 px-4 rounded-lg shadow-green-500/50 shadow-md w-max transition-colors duration-300"
       >
         {search.image_url ? (
@@ -27,7 +26,7 @@ function SearchResult({ search }) {
       </Link>
       <div className="p-4 text-center">
         <Link
-          to={`/groceries/${search.id}`}
+          to={`/groceries/search/${search.id}`}
           className="text-blue-500 hover:underline"
         >
           <h2 className="text-2xl font-bold mb-2">
@@ -72,7 +71,7 @@ function SearchResult({ search }) {
         </div>
         <div className="flex flex-wrap mb-4 justify-center">
           <Link
-            to={`/groceries/${search.id}`}
+            to={`/groceries/search/${search.id}`}
             className="py-2 px-4 mt-6 bg-green-300 hover:bg-green-100 text-xl font-bold flex focus:outline-none focus:shadow-outline rounded-lg shadow-green-500/50 shadow-md w-max transition-colors duration-300 text-center"
           >
             View Details
