@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import SearchResult from "./SearchResult";
 
 function Search() {
   const [query, setQuery] = useState("");
@@ -77,18 +78,14 @@ function Search() {
 
         <div>
           {grocery.length > 0 ? (
-            <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 rounded-lg shadow-green-500/50 border shadow-md">
               {grocery.map((item) => (
-                <div key={item.id}>
-                  <Link to={`/grocery/${item.id}`} onClick={handleSearch}>
-                    <h2>{item.name}</h2>
-                  </Link>
-                </div>
+                <SearchResult key={item.id} search={item} />
               ))}
             </div>
           ) : (
             <div>
-              {query && !clicked ? "This food item does not exist." : null}
+              {query && !clicked ? "This item does not exist." : null}
             </div>
           )}
         </div>
